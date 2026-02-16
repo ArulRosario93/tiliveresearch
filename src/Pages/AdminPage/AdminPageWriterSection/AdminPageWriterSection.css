@@ -1,0 +1,49 @@
+
+.AdminPageWriterSectionWriterContainer{
+    background-color: rgb(243, 249, 255);
+}
+
+.AdminPageWriterSectionAddImageContainer{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: #3D2BE2;
+    width: 100%;
+}
+
+.AdminPageWriterSectionAddImageContainerImages{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.AdminPageWriterSectionAddImageContainerImagesImg{
+    width: 60px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.AdminPageWriterSectionAddImage{
+    
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding: 10px 15px;
+    color: #3D2BE2;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.AdminPageContentContainerWriterHeadInputTextArea{
+    /* border: 0px solid red; */
+}
+.AdminPageWriterSectionAddImageText{
+    font-size: 14px;
+    font-weight: 600;
+}

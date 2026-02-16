@@ -1,0 +1,95 @@
+
+.ServicesPageContainer{
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    color: white;
+    position: relative;
+    background-image: url('https://sierradigitalinc.com/wp-content/uploads/2025/10/Key-Challenges-in-Aerospace-Defense.webp');
+}
+
+.ServicesPageContainerAbsolute{
+    background-color: rgba(0, 0, 0, 0.226);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.ServicesPageContainerHead{
+    margin-bottom: 20px;
+}
+
+.ServicesPageContainerPara{
+    width: 80%;
+    text-align: justify;
+    /* margin-bottom: 10vh; */
+}
+
+.ServicePageContainerReports{
+    position: relative;
+    /* top: -20vh; */
+    width: 100%;
+    margin: auto;
+    box-shadow: 1px -90px 95px rgba(0, 0, 0, 0.264);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.ServicePageContainerReportsHead{
+    padding:40px;
+    font-size: x-large;
+}
+
+.ServicePageContainerReportsHeadNope{
+    text-align: center;
+    padding: 100px;
+}
+
+.ServicePageContainerReportsContainer{
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: row;
+    padding: 5px 40px;
+}
+
+.ServicePageContainerReportsContainerReport{
+    width: 25vw;
+    height: 35vw;
+    position: relative;
+    background-color: black;
+    background-image: url('https://www.pcbconnectgroup.com/wp-content/uploads/2022/12/aerospace_and_defence.jpeg');
+    background-size: cover;    
+    background-color: black;
+    border-radius: 10px;
+}
+
+.ServicePageContainerReportsContainerReportAbsolute{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.227);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ServicePageContainerReportsContainerReportHead{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.ServicePageContainerReportsContainerReportPara{
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}

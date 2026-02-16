@@ -1,0 +1,41 @@
+
+.SecondContainer{
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    padding: 10px 50px;
+}
+.SecondContainerHead{
+    margin: 40px;
+    text-align: center;
+}
+
+.SecondContainerImage{
+    height: 80vh;
+    width: 100%;
+    background-color: white;
+}
+
+.SecondContainerImageImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.SecondContainerLists{
+    gap: 30px;
+    row-gap: 70px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 768px){
+
+    .SecondContainerLists{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

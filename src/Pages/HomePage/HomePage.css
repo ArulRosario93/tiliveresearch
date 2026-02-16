@@ -1,0 +1,10 @@
+
+.HomePage{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 247, 247);
+      font-family: "Poppins", sans-serif;
+}

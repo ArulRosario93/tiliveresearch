@@ -1,0 +1,42 @@
+
+.ReportContentsHeader{
+    padding: 15px 0px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    max-width: 100%;
+}
+.ReportContentsHeaderText{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    color: black;
+    cursor: pointer;
+}
+
+.ReportContentsHeaderTextSelected{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .ReportContentsHeader{
+        gap: 0px;
+        padding: 10px 10px;
+        justify-content: space-between;
+        position: sticky;
+        top: 110px;
+        background-color: white;
+    }
+    .ReportContentsHeaderText, .ReportContentsHeaderTextSelected{
+        font-size: 12px;
+    }
+}

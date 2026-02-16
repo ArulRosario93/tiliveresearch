@@ -1,0 +1,68 @@
+.NavBar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 80px;
+    background-color: #EEEEEE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    user-select: none;
+    font-family: "Poppins", sans-serif;
+    height: 100px;
+    z-index: 101;
+}
+
+.NavBarLogo{
+    width: 200px;
+}
+
+.NavBarContent{
+    flex: 1;
+    justify-content: end;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px;
+    position: relative;
+}
+
+.NavBarContentItem{
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+}
+
+.NavBarContentItem:hover .NavBarContentAbsolute{
+    visibility: visible;
+    opacity: 1;
+}
+
+.NavBarContentAbsolute{
+    /* position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 50px;
+    background-color: black; */
+}
+
+
+@media screen and (max-width: 768px) {
+    .NavBar{
+        padding: 20px 20px;
+        height: 80px;
+    }
+
+    .NavBarLogo{
+        width: 120px;
+    }
+
+    .NavBarContent{
+        gap: 10px;
+        justify-content: end;
+    }
+
+    .NavBarContentItem{
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,31 @@
+
+.DepartmentContainer{
+    height: 220px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    padding: 25px;
+    border: 2px solid rgb(0, 110, 255);
+    background-color: rgb(255, 255, 255);
+}
+
+.DepartmentContainerAbsolute{
+    position: absolute;
+    top: -50px;
+    width: 80%;
+    margin: auto;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.DepartmentContainer:hover{
+    border: 1px dotted red;
+}

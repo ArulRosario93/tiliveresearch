@@ -1,0 +1,70 @@
+
+.MainSearchBar{
+    height: 60vh;
+    width: 50%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+      font-family: "Poppins", sans-serif;
+}
+
+.MainSearchBarInput{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.MainSearchBarHeader{
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.MainSearchBarInputInp{
+    width: 100%;
+    padding: 25px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 50px;
+      font-family: "Poppins", sans-serif;
+}
+
+.MainSearchBarInputSearchBtn{
+    padding: 25px 40px;
+    position: absolute;
+    right: 0%;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: blue;
+}
+.MainSearchBarInputSearchBtnText{
+    font-size: 16px;
+    color: white;
+}
+
+.MainSearchBarFavourite{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.MainSearchBarFavouriteHeader{
+    /* padding: 8px 12px; */
+    font-size: 14px;
+    /* background-color: aliceblue; */
+    border-radius: 20px;
+}
+
+.MainSearchBarFavouriteItem{
+    
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}

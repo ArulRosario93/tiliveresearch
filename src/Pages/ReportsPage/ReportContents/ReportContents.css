@@ -1,0 +1,76 @@
+.ReportContents{
+    margin-top: 130px;
+    flex: 1;    
+    height: 100%;
+    padding: 0px 40px 20px 50px;
+}
+
+.ReportContentsHead{
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+
+.ReportContentsText{
+    font-size: 14px;
+    padding: 10px 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.ReportContentsLongText{
+    max-height: 0px;
+    overflow: hidden;
+    /* transition: max-height 1s ease; */
+    animation-name: lowdoe;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-delay: .5s;
+    font-family: "Poppins", sans-serif;
+    text-align: justify;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.ReportContentsLongTextList{
+    padding: 0px 2px;
+}
+
+.ReportContentsImage{
+    max-width: 80%;
+}
+
+@media (max-width: 768px) {
+    .ReportContents{
+        margin-top: 80px;
+        padding: 20px 0px 10px 0px;
+    }
+    
+    .ReportContentsHead{
+        font-size: 20px;
+        position: sticky;
+        top: 80px;
+        padding: 3px 8px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .ReportContentsText{
+        font-size: 10px;
+        text-align: justify;
+        padding: 5px 10px;
+    }
+    .ReportContentsLongText{
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .ReportContentsImage{
+        max-width: 100%;
+    }
+}
+
+@keyframes lowdoe {
+    to {
+        max-height: 11100vh;
+    }
+}

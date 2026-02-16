@@ -1,0 +1,35 @@
+.NavBarContentAbsoluteContainer{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.NavBarContentAbsolute{
+    position: absolute;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.NavBarContentAbsoluteItem{
+    border: 1px solid #000000;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+}
+
+.NavBarContentAbsoluteItemText{
+    flex: 1;
+    color: black;
+}
+
+.NavBarContentAbsoluteIcon{
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+}

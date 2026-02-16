@@ -1,0 +1,23 @@
+.ReportsPage{
+    position: relative;
+    display: flex;
+    height: auto;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.ReportsPageContainer{
+    display: flex;
+    height: 100%; 
+    position: relative;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+
+@media (max-width: 768px) {
+    .ReportsPageContainer{
+        flex-direction: column;
+        width: 100%;
+    }
+}
