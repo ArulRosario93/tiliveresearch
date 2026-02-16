@@ -25,7 +25,6 @@ const imageLibrary = {
 
 const ReportContents = ({ content, currentReportLabel, changelabels }) => {
 
-
     const lines = content[currentReportLabel].split('\n');
 
     const formatBold = (text) => {
@@ -84,7 +83,7 @@ const ReportContents = ({ content, currentReportLabel, changelabels }) => {
                       if (trimmedLine.startsWith('•')) {
                       const content = trimmedLine.replace('•', '').trim();
                       const hasLabel = content.match(/^([^:]+):/);
-                      
+
                       if (hasLabel) {
                           return (
                           <li key={index} style={{ marginLeft: '25px', marginBottom: '8px' }}>

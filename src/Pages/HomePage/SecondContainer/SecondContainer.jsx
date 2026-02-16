@@ -92,7 +92,7 @@ const SecondContainer = () => {
     return (
         <div className="SecondContainer">
 
-            <h2 className="SecondContainerHead">WHAT WE DO</h2>
+            <h2 className="SecondContainerHead">Industries we serve</h2>
 
             <div className="SecondContainerLists">
 

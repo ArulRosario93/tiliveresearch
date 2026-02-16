@@ -5,6 +5,8 @@ import MainSearchBar from "../../Components/MainSearchBar/MainSearchBar";
 import FootBar from "../../Components/FootBar/FootBar";
 import FirstContainer from "./FirstContainer/FirstContainer";
 import SecondContainer from "./SecondContainer/SecondContainer";
+import ThirdContainer from "./ThirdContainer/ThirdContainer";
+import FourthContainer from "./FourthContainer/FourthContainer";
 
 const HomePage = () => {
     return (
@@ -15,7 +17,9 @@ const HomePage = () => {
             {/* <MainSearchBar /> */}
 
             <FirstContainer />
+            <ThirdContainer />
             <SecondContainer />
+            <FourthContainer />
             <FootBar />
 
         </div>

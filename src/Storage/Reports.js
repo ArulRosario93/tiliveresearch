@@ -101,7 +101,7 @@ Global metaverse market by end-use insights & trend
 •Travel & tourism
 •Education
 •Others
-                `,
+            `,
                 images: [],
             },
             {

@@ -1,0 +1,23 @@
+
+.ThirdContainerService{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.ThirdContainerServicePara{
+
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.ThirdContainerServicePara:hover{
+    background-color: rgba(0, 0, 255, 0.677);
+}

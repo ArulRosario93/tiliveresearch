@@ -1,0 +1,30 @@
+.ThirdContainer{
+    height: 80vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.ThirdContainerHead{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.ThirdContainerHeadSmall{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.ThirdContainerPara{
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0px;
+    text-align: center;
+    width: 90%;
+    /* margin: auto; */
+}
