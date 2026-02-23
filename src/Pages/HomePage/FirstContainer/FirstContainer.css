@@ -25,8 +25,38 @@
 
 .FirstContainerLists{
     display: flex;
+    width: 100%;
     flex-direction: row;
     gap: 20px;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 768px){
+
+    .FirstContainer{
+        padding: 0px 16px;
+        height: 100vh;
+    }
+
+    .FirstContainerHead{
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .FirstContainerPara{
+        text-align: center;
+        font-size: 13px;
+        margin: 15px 0px 20px;
+    }
+    
+    .FirstContainerLists{
+        gap: 0px;
+        justify-content: space-between;
+    }
+
+
+    .FirstContainerListsPara{
+        font-size: 12px;
+    }
 }

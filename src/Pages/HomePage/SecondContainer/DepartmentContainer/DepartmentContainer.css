@@ -29,3 +29,13 @@
 .DepartmentContainer:hover{
     border: 1px dotted red;
 }
+
+
+@media (max-width: 768px){
+    .DepartmentContainer{
+        height: 180px;
+    }
+    .DepartmentContainerAbsolutePara{
+        font-size: 13px;
+    }
+}

@@ -34,7 +34,18 @@
 
 @media (max-width: 768px){
 
+    .SecondContainer{
+        height: auto;
+        padding: 0px 16px 50px;
+    }
+
+    .SecondContainerHead{
+        margin: 50px;
+    }
+
     .SecondContainerLists{
+        /* gap: 70px; */
+        row-gap: 50px;
         grid-template-columns: repeat(2, 1fr);
     }
 

@@ -5,7 +5,7 @@ import NavBarSearchBar from "./NavBarContent/NavBarSearchBar/NavBarSearchBar";
 
 const NavBar = () => {
 
-    const navItem = ['Reports', 'About Us'];
+    const navItem = ['Industries', 'Reports', 'About Us'];
 
     const [navHover, setNavHover] = useState('');
 

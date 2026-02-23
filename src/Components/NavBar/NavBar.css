@@ -1,6 +1,7 @@
 .NavBar{
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 40px 80px;
     background-color: #EEEEEE;
@@ -46,9 +47,9 @@
     background-color: black; */
 }
 
-
 @media screen and (max-width: 768px) {
     .NavBar{
+        max-width: 100%;
         padding: 20px 20px;
         height: 80px;
     }
@@ -63,6 +64,6 @@
     }
 
     .NavBarContentItem{
-        font-size: 14px;
+        font-size: 12px;
     }
 }

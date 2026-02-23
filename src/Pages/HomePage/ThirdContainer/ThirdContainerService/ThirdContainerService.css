@@ -21,3 +21,16 @@
 .ThirdContainerServicePara:hover{
     background-color: rgba(0, 0, 255, 0.677);
 }
+
+@media (max-width: 768px){
+
+    .ThirdContainerService{
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .ThirdContainerServicePara{
+        font-size: 14px;
+    }
+}

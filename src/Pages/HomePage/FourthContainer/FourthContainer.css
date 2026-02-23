@@ -51,3 +51,30 @@
     text-align: center;
     color: blue;
 }
+
+@media (max-width: 768px){
+
+    .FourthContainer{
+        padding: 40px 0px;
+        height: auto;
+    }
+
+    .FourthContainerSlides{
+        grid-template-columns: auto;
+    }
+
+    .FourthContainerSlide{
+        padding: 20px 30px;
+        gap: 15px;
+    }
+
+    .FourthContainerSlidePara{
+        height: auto;
+        font-size: 12px;
+    }
+
+    .FourthContainerSlideHead{
+        font-size: 12px;
+    }
+
+}

@@ -7,7 +7,7 @@ const DepartmentContainer = ({ key, department, handleClick }) => {
 
             <div className="DepartmentContainerAbsolute">
 
-                <p>{department.name}</p>
+                <p className="DepartmentContainerAbsolutePara">{department.name}</p>
 
             </div>
                 {department.icon}
