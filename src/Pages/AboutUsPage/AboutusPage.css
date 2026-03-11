@@ -1,0 +1,104 @@
+.AboutUsPage{
+    padding-top: 120px;
+    width: 90%;
+    margin: auto;
+}
+
+.AboutUsPageHead{
+    font-size: 30px;
+    text-align: center;
+}
+
+.AboutUsPagePara{
+    font-size: 16px;
+    padding: 10px 0px;
+}
+
+.AboutUsPageWhoAreWe{
+    display: flex;
+    margin: 30px;
+    padding: 40px;
+    flex-direction: row;
+    gap: 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.AboutUsPageWhoAreWeContent{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.AboutUsPageWhoAreWeContentHead{
+    font-size: 25px;
+}
+
+.AboutUsPageWhoAreWeImage{
+    width: 100%;
+    height: 300px;
+}
+
+.AboutUsPageWhoAreWeContentPara{
+    margin-top: 10px;
+}
+
+.AboutUsPageWhoAreWeImage img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.AboutUsPageWhyChooseUs{
+    gap: 20px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px;
+    margin: 30px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+.AboutUsPageWhyChooseUsHead{
+    font-size: 25px;
+}
+
+.AboutUsPageWhyChooseUsImage{
+    height: 400px;
+    width: 100%;
+}
+
+.AboutUsPageWhyChooseUsImage img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.AboutUsPageWhyChooseUsLists{
+    padding: 10px 0px 0px 40px;
+}
+
+.AboutUsPageListHead{
+    font-weight: 600;
+}
+
+.AboutUsPageVision, .AboutUsPageMission{
+    margin-top: 20px;
+    padding: 20px 40px;
+    color: white;
+    border-radius: 60px;
+    background-color: rgb(36, 36, 81);
+    text-align: center;
+}
+
+.AboutUsVisionPara, .AboutUsMissionPara{
+    font-size: 14px;
+}

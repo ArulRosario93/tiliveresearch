@@ -25,62 +25,54 @@ const SecondContainer = () => {
         {
             name: 'CONSTRUCTION & MINING',
             camelCased: 'Construction & Mining',
-            icon: <ConstructionIcon fontSize="large" />
+            icon: <ConstructionIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'PHARMA & BIOTECHNOLOGY',
             camelCased: 'Pharma & Biotechnology',
-            icon: <BiotechIcon fontSize="large" />
+            icon: <BiotechIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'AUTOMOTIVE & TRANSPORTATION',
             camelCased: 'Automotive & Transportation',
-            icon: <EmojiTransportationIcon fontSize="large" />
+                icon: <EmojiTransportationIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'AEROSPACE & DEFENSE',
             camelCased: 'Aerospace & Defense',
-            icon: <ConnectingAirportsIcon fontSize="large" />
-        },
-        {
-            name: 'PACKAGING',
-            camelCased: 'Packaging',
-            icon: <Inventory2Icon fontSize="large" />
+            icon: <ConnectingAirportsIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'FOOD & BEVERAGE',
             camelCased: 'Food & Beverage',
-            icon: <FastfoodIcon fontSize="large" />
+            icon: <FastfoodIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'ENERGY & POWER',
             camelCased: 'Energy & Power',
-            icon: <ElectricMeterIcon fontSize="large" />
+            icon: <ElectricMeterIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'INFORMATION & COMMUNICATION TECHNOLOGY',
             camelCased: 'Information & Communication Technology',
-            icon: <SatelliteAltIcon fontSize="large" />
+            icon: <SatelliteAltIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'SEMICONDUCTOR & ELECTRONICS',
             camelCased: 'Semiconductor & Electronics',
-            icon: <MemoryIcon fontSize="large" />
+            icon: <MemoryIcon sx={{ fontSize: '90px' }} />
         },
         {
+
+
             name: 'HEALTHCARE',
             camelCased: 'Healthcare',
-            icon: <HealthAndSafetyIcon fontSize="large" />
+            icon: <HealthAndSafetyIcon sx={{ fontSize: '90px' }} />
         },
         {
             name: 'CHEMICALS & MATERIALS',
             camelCased: 'Chemical & Materials',
-            icon: <ScienceIcon fontSize="large" />
-        },
-        {
-            name: 'MEDICALDEVICES',
-            camelCased: 'Medical Devices',
-            icon: <MonitorHeartIcon fontSize="large"/>
+            icon: <ScienceIcon sx={{ fontSize: '90px' }} />
         },
     ];
 

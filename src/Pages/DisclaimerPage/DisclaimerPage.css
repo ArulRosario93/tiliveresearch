@@ -1,0 +1,27 @@
+
+
+.DisclaimerPage{
+    margin-top: 110px;
+    padding: 30px 50px;
+}
+
+.DisclaimerPageHEAD{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.DisclaimerPageHead{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.DisclaimerPagePara{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.DisclaimerPageList{
+    font-size: 16px;
+    margin-left: 30px;
+}

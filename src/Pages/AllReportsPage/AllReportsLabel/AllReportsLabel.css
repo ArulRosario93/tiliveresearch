@@ -1,0 +1,35 @@
+
+.AllReportsLabelContainerOuter{
+
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+
+.AllReportsLabelContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 5px;
+    align-items: center;
+}
+
+.AllReportsLabelContainer:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+    color: #513ef7;
+}
+
+.AllReportsLabelContainerPara{
+    font-size: 13px;
+    color: #513ef7;
+}
+
+@media (max-width: 768px) {
+    .AllReportsLabelContainer{
+        flex-direction: row;
+        gap: 6px;
+    }
+}

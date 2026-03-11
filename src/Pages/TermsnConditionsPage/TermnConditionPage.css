@@ -1,0 +1,36 @@
+
+
+.TermnConditionPage{
+    margin-top: 110px;
+    padding: 30px 50px;
+}
+
+.TermnConditionPageHEAD{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.TermnConditionPageHead{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.TermnConditionPagePara{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.TermnConditionPageHeadSpecial{
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.TermnConditionPageList{
+    font-size: 16px;
+    margin-left: 30px;
+}
+.TermnConditionPageParaSpecial{
+    margin-left: 15px;
+}

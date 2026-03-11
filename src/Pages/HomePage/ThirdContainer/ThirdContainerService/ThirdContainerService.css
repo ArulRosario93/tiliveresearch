@@ -11,7 +11,7 @@
 
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: blue;
+    background-color: rgba(0, 0, 255, 0.677);;
     border-radius: 50px;
     color: white;
     cursor: pointer;
@@ -19,7 +19,7 @@
 }
 
 .ThirdContainerServicePara:hover{
-    background-color: rgba(0, 0, 255, 0.677);
+    background-color: blue;
 }
 
 @media (max-width: 768px){
@@ -33,4 +33,5 @@
     .ThirdContainerServicePara{
         font-size: 14px;
     }
+
 }

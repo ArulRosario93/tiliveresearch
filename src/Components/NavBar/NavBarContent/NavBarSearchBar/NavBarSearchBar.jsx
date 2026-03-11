@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const NavBarSearchBar = () => {
     return (
         <div className="NavBarSearchBar">
-            <input className="NavBarSearchBarInp" type="text" placeholder="Search Aerospace" />
+            <input className="NavBarSearchBarInp" type="text" placeholder="Search Title" />
 
             <div className="NavBarSearchBarBtn">
                 <SearchIcon className="NavBarSearchBarBtnIcon" />

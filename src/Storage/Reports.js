@@ -129,44 +129,36 @@ const services = [
     },
     {
         name: 'Automotive & Transportation',
-        description: 'Our company delivers in-depth reports for the automotive and transportation sectors, covering market trends, technology innovations, supply chain analysis, and competitive insights. We provide actionable data to support strategic planning, investment decisions, and sustainable growth in a dynamic industry landscape.',
+        description: 'The Automotive and Transportation sector drives global mobility across passenger vehicles, commercial transport, electric mobility, and smart infrastructure. Tilive Research delivers strategic insights on electrification, autonomous systems, regulatory shifts, and evolving ownership models, enabling stakeholders to navigate disruption and capture growth opportunities confidently.',
     },
     {
         name: 'Aerospace & Defense',
-        description: 'Our company provides comprehensive reports for the aerospace and defense sectors, offering market analysis, technological trends, regulatory insights, and competitive intelligence. We deliver accurate, actionable information to support strategic planning, risk management, and informed decision-making in a high-stakes, evolving industry.',
-    },
-    {
-        name: 'Packaging',
-        description: 'Our company offers detailed reports for the packaging industry, covering market trends, material innovations, sustainability practices, and competitive analysis. We provide actionable insights and data-driven intelligence to support strategic planning, operational efficiency, and growth in a rapidly evolving packaging landscape.',
+        description: 'Aerospace and Defense encompasses aircraft, spacecraft, defense systems, and advanced security technologies supporting national defense and global connectivity. Tilive Research provides market intelligence and strategic analysis to help organizations navigate geopolitical shifts, regulatory complexity, innovation cycles, and long-term defense and space investment trends.',
     },
     {
         name: 'Food & Beverage',
-        description: 'Our company delivers comprehensive reports for the food and beverage industry, offering market trends, consumer insights, regulatory updates, and competitive analysis. We provide reliable data and actionable intelligence to support strategic decisions, product innovation, and sustainable growth.',
+        description: 'The Food and Beverage sector covers production, processing, and distribution of essential food and drink products. Tilive Research provides strategic insights into evolving consumer preferences, sustainability, health trends, regulatory developments, and supply chain dynamics, helping businesses innovate and maintain competitive advantage in a consumer-driven marketplace.',
     },
     {
         name: 'Energy & Power',
-        description: 'Our company provides in-depth reports for the energy and power sector, covering market trends, renewable and conventional energy sources, regulatory developments, and technological innovations. We deliver actionable insights to support strategic planning, investment decisions, and sustainable growth in a dynamic industry.',
+        description: 'The Energy and Power sector spans conventional and renewable energy generation, transmission, and storage. Tilive Research delivers data-driven insights on decarbonization, policy shifts, smart grids, and clean technologies, enabling stakeholders to manage transition risks, strengthen energy security, and lead sustainable transformation initiatives.',
     },
     {
         name: 'Information & Communication Technology',
-        description: 'Our company delivers detailed reports for the Information & Communication Technology sector, covering market trends, emerging technologies, competitive analysis, and regulatory developments. We provide actionable insights and data-driven intelligence to support strategic planning, innovation, and growth in a rapidly evolving digital landscape.',
+        description: 'Tilive Research views ICT as a rapidly evolving ecosystem of hardware, software, cloud, and telecom solutions enabling digital connectivity. We provide market intelligence and strategic analysis to help organizations navigate digital transformation, cybersecurity challenges, regulatory shifts, and emerging technologies in an increasingly interconnected global economy.',
     },
     {
         name: 'Semiconductor & Electronics',
-        description: 'Our company provides comprehensive reports for the semiconductor and electronics industry, covering market trends, technological innovations, supply chain dynamics, and competitive analysis. We deliver accurate, actionable insights to support strategic planning, investment decisions, and growth in a fast-evolving technology landscape.',
+        description: 'The Semiconductor and Electronics sector powers modern devices through advanced components, integrated circuits, and complex supply chains. Tilive Research delivers competitive intelligence and strategic insights to help companies address technology shifts, supply constraints, AI-driven innovation, and evolving manufacturing landscapes while sustaining growth and market leadership.',
     },
     {
         name: 'Healthcare',
-        description: 'Our company delivers in-depth reports for the healthcare sector, covering market trends, medical innovations, regulatory updates, and competitive analysis. We provide accurate, actionable insights to support strategic planning, investment decisions, and improved patient care in a dynamic industry.',
+        description: 'Tilive Research views healthcare as a dynamic ecosystem of providers, manufacturers, and service organizations focused on improving patient outcomes. We deliver market intelligence and strategic insights to help stakeholders navigate regulatory shifts, technological advancements, and growing demand for medical devices, digital health, and aging-care solutions.',
     },
     {
         name: 'Chemical & Materials',
-        description: 'Our company provides comprehensive reports for the chemical and materials industry, covering market trends, technological innovations, regulatory developments, and competitive analysis. We deliver accurate, actionable insights to support strategic planning, research, and sustainable growth in a rapidly evolving sector.',
+        description: 'The Chemicals and Materials sector underpins global industries through specialty chemicals and advanced materials. Tilive Research provides market insights and strategic analysis to support innovation, sustainability initiatives, regulatory adaptation, and resource efficiency, enabling businesses to remain competitive in a transformative and environmentally conscious marketplace.',
     },
-    {
-        name: 'Medical Devices',
-        description: 'Our company delivers detailed reports for the medical devices sector, covering market trends, technological advancements, regulatory updates, and competitive analysis. We provide actionable insights and reliable data to support strategic planning, innovation, and growth in a highly dynamic healthcare industry.',
-    }
 ]
 
 export default services;

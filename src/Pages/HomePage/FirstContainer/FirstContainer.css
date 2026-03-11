@@ -7,11 +7,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('https://envistacorp.com/wp-content/uploads/2024/02/shutterstock_393416251-scaled.jpg');
+    background-image: url('../../../assets/Generated\ image.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     color: white;
+    position: relative;
 }
 
 .FirstContainerHead{
@@ -21,9 +22,12 @@
 
 .FirstContainerPara{
     margin-bottom: 40px;
+    font-size: 17px;
 }
 
 .FirstContainerLists{
+    position: absolute;
+    bottom: 20vh;
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -51,8 +55,9 @@
     }
     
     .FirstContainerLists{
-        gap: 0px;
-        justify-content: space-between;
+        bottom: 25vh;
+        gap: 20px;
+        justify-content: center;
     }
 
 

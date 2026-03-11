@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./NavBar.css";
+import { useNavigate } from 'react-router';
 import NavBarContentAbsolute from "./NavBarContent/NavBarContent";
 import NavBarSearchBar from "./NavBarContent/NavBarSearchBar/NavBarSearchBar";
 
 const NavBar = () => {
 
-    const navItem = ['Industries', 'Reports', 'About Us'];
+    const navItem = ['Reports', 'About Us'];
+    const navigate = useNavigate();
 
     const [navHover, setNavHover] = useState('');
 
@@ -20,6 +22,13 @@ const NavBar = () => {
         setNavHover('');
     }
 
+    const handleNavigatetoReports = () => {
+        navigate('/reports/')
+    }
+    const handleNavigatetoAboutUs = () => {
+        navigate('/aboutus/')
+    }
+
     return (
         <div className="NavBar">
 
@@ -32,7 +41,7 @@ const NavBar = () => {
                 {
                     navItem.map((item, i) => {
                         return (
-                            <p key={i} className="NavBarContentItem" onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver}>{item}</p>
+                            <p key={i} className="NavBarContentItem" onClick={item == "Reports" ? handleNavigatetoReports : handleNavigatetoAboutUs} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver}>{item}</p>
                         )
                     })
                 }

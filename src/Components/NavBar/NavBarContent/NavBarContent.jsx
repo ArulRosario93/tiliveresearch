@@ -18,7 +18,7 @@ const NavBarContentAbsolute = ({ visibility, funcIn, funcOut }) => {
                 </div>
 
 
-                {/* <div className="NavBarContentAbsoluteItem">
+                <div className="NavBarContentAbsoluteItem">
 
                     <p className="NavBarContentAbsoluteItemText">Technology</p>
                     <div className="NavBarContentAbsoluteIcon">
@@ -86,7 +86,7 @@ const NavBarContentAbsolute = ({ visibility, funcIn, funcOut }) => {
 
                     </div>
 
-                </div> */}
+                </div>
             </div>
 
         </div>

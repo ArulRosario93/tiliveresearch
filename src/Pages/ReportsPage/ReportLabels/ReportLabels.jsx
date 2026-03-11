@@ -20,7 +20,8 @@ const ReportLabels = ({ changelabels, currentReportLabel }) => {
 
                 <div className='ReportLabelsBottomlayer'>
 
-                    <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Sample Reports')} text='Buy Sample Reports' buy={false} showContentOnly={true} />
+                    <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Sample Reports')} enquire={true} text='Enquire Before Buying' buy={false} showContentOnly={true} />
+                    <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Sample Reports')} sample={true} text='Request for Sample' buy={false} showContentOnly={true} />
                     <ReportLabelsContainer handleClick={() => console.log('Clicked Having trouble?')} text='Having Trouble?' subText='Contact Us' buy={false} showContentOnly={true} />
 
                 </div>
@@ -30,7 +31,7 @@ const ReportLabels = ({ changelabels, currentReportLabel }) => {
                     <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Now')} text='Buy Now' buy={true} showContentOnly={true} />
                 </div>
                 <div className='ReportLabelsAbsoluteMobileBottom'>
-                    <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Sample Reports')} text='Buy Sample Reports' buy={false} showContentOnly={true} />
+                    <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Sample Reports')} sample={true} text='Request for Sample' buy={false} showContentOnly={true} />
                     <ReportLabelsContainer handleClick={() => console.log('Clicked Buy Now')} text='Buy Now' buy={true} showContentOnly={true} />
                     <ReportLabelsContainer handleClick={() => console.log('Clicked Having trouble?')} text='Having Trouble?' subText='Contact Us' buy={false} showContentOnly={true} />
                 </div>

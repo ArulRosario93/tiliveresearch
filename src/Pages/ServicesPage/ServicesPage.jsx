@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 import './ServicesPage.css';
 import services from '../../Storage/Reports.js';
@@ -6,10 +7,15 @@ import NavBar from '../../Components/NavBar/NavBar';
 
 const ServicesPage = () => {
     let { servicename } = useParams();
+    const navigate = useNavigate();
 
     const service = services.filter((service) => service.name == servicename)[0];
 
     window.scroll(0, 0);
+
+    const handleNavigate = (report) => {
+        navigate(`/reports/${report}`);
+    }
 
     return(
         <div className='ServicesPage'>
@@ -29,11 +35,10 @@ const ServicesPage = () => {
 
                 {
                     true? <>
-                    
-                        <h3 className='ServicePageContainerReportsHead'>Reports On Aerospace & Defence</h3>
+                        <h3 className='ServicePageContainerReportsHead'>Reports On {service.name}</h3>
                         <div className='ServicePageContainerReportsContainer'>
 
-                            <div className='ServicePageContainerReportsContainerReport'>
+                            <div className='ServicePageContainerReportsContainerReport' onClick={() => handleNavigate('metaverse')}>
                                 <div className='ServicePageContainerReportsContainerReportAbsolute'>
                                     <h4 className='ServicePageContainerReportsContainerReportHead'>MetaVerse Market 2021 - 2031</h4>
                                     <p className='ServicePageContainerReportsContainerReportPara'>Aerospace and defense industry provides in-depth analysis for understanding evolving dynamics in this industry, market data forecasting, technological upgradation and other beneficial insights in order to enable clients in developing efficient and effective growth oriented strategies.</p>

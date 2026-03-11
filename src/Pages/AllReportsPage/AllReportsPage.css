@@ -1,0 +1,48 @@
+
+.AllReportsPageContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding-top: 100px;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+.AllReportsPageContainerLabel{
+    flex: 1;
+    height: 100%;
+    /* gap: 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.AllReportsPageContainerContent{
+    padding-top: 20px;
+    flex: 4;
+    overflow-y: scroll;
+}
+
+.AllReportsPageContainerContentNotAvailable{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.AllReportsPageContainerLabelHead, .AllReportsPageContainerContentHead{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+    .AllReportsPageContainer{
+        flex-direction: row;
+        width: 100%;
+    }
+    .AllReportsPageContainerLabel{
+        padding: 10px 5px;
+    }
+}

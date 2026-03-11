@@ -1,51 +1,99 @@
-.ThirdContainer{
-    height: 80vh;
-    width: 100%;
-    background-color: white;
-    display: flex;
+.third {
+  width: 100%;
+  padding: 80px 20px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.third-header {
+  text-align: center;
+  max-width: 800px;
+}
+
+.third-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.third-header h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+}
+
+.third-content {
+  display: flex;
+  align-items: center;
+  /* gap: 60px; */
+  max-width: 1100px;
+  width: 100%;
+    justify-content: space-evenly;
+}
+
+.third-graphic {
+  display: flex;
+  align-items: center;
+}
+
+.third-description {
+  max-width: 500px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.third-description p {
+  margin-bottom: 18px;
+}
+
+.third-description span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.green {
+  color: #1abc9c;
+}
+
+.yellow {
+  color: #f4c542;
+}
+
+.blue {
+  color: #3498db;
+}
+
+.third-footer {
+  /* max-width: 850px; */
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .third {
+    padding: 60px 20px;
+  }
+
+  .third-content {
     flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
+    gap: 40px;
+  }
 
-.ThirdContainerHead{
-    font-size: 30px;
-    font-weight: 700;
-}
+  .third-header h2 {
+    font-size: 26px;
+  }
 
-.ThirdContainerHeadSmall{
-    font-size: 18px;
+  .third-header h4 {
+    font-size: 14px;
+  }
+
+  .third-description {
     text-align: center;
-    font-weight: 600;
-}
-
-.ThirdContainerPara{
-    font-size: 16px;
-    font-weight: 400;
-    padding: 10px 0px;
-    text-align: center;
-    width: 90%;
-    /* margin: auto; */
-}
-
-
-@media (max-width: 768px){
-
-    .ThirdContainer{
-        height: auto;
-        padding: 50px 0px;
-    }
-
-    .ThirdContainerHead{
-        font-size: 25px;
-    }
-
-    .ThirdContainerHeadSmall{
-        font-size: 14px;
-    }
-
-    .ThirdContainerPara{
-        font-size: 14px;
-    }
+  }
 }

@@ -6,13 +6,13 @@ const FirstContainer = () => {
     return (
         <div className="FirstContainer">
 
-            <h2 className="FirstContainerHead">Advancing Automation Through Research</h2>
-            <p className="FirstContainerPara">Independent, data-driven insights into automation, AI, and intelligent systems.</p>
+            <h2 className="FirstContainerHead">Global Intelligence. Strategic Clarity. Sustainable Success.</h2>
+            <p className="FirstContainerPara">Delivering rigorous research and forward-thinking analysis across industries.</p>
 
             <div className="FirstContainerLists">
                 <p className="FirstContainerListsPara">View Research</p>
                 <p className="FirstContainerListsPara">About Us</p>
-                <p className="FirstContainerListsPara">Abstract Tech Visual</p>
+                <p className="FirstContainerListsPara">Contact Us</p>
             </div>
 
         </div>

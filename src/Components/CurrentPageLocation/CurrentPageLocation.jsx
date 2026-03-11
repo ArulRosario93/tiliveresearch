@@ -5,7 +5,7 @@ const CurrentPageLocation = () => {
     return (
         <div className="CurrentPageLocation">
 
-            <a style={{textDecoration: 'none'}} href="/"><p className="CurrentPageLocationPara">Home &gt; Advanced Interior Materials &gt; Hose Market</p></a>
+            <a style={{textDecoration: 'none'}} href="/"><p className="CurrentPageLocationPara">Home &gt; Semi Conductors & Industries &gt; Hose Market</p></a>
 
         </div>
     );
