@@ -13,7 +13,7 @@ const HowToOrderPage = () => {
             <div className='HowToOrderPage'>
                 <h2 className='HowToOrderPageHead'>How To Order</h2>
 
-                <p className='HowToOrderPageHeadPara'>At Tilive Research (A Division of Tilive International LLP), we have developed a straightforward and effective ordering process to enable you to swiftly obtain the market intelligence and services you require.
+                <p className='HowToOrderPageHeadPara'>At Tilive Research (a division of Tilive International LLP), we have developed a straightforward and effective ordering process to enable you to swiftly obtain the market intelligence and services you require.
 </p>            
                 <br />
 
