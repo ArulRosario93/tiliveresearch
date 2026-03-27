@@ -20,7 +20,7 @@ const AboutUsPage = () => {
 
                     <div className='AboutUsPageWhoAreWeContent'>
                         <h2 className='AboutUsPageWhoAreWeContent'>Who Are We</h2>
-                        <p className='AboutUsPageWhoAreWeContentPara'>Tilive Research is a consulting and market research firm that provides data-driven insights to assist businesses in making informed and strategic decisions. We focus on analyzing market trends, customer behavior, and competitive landscapes across various industries, such as healthcare, technology, energy, automotive, and others.
+                        <p className='AboutUsPageWhoAreWeContentPara'>Tilive Research is a consulting and market research firm operating as a Division of Tilive International LLP that provides data-driven insights to assist businesses in making informed and strategic decisions. We focus on analyzing market trends, customer behavior, and competitive landscapes across various industries, such as healthcare, technology, energy, automotive, and others.
     </p>
                         <p className='AboutUsPageWhoAreWeContentPara'>Our team merges analytical expertise with practical business knowledge to deliver research that is not only informative but also actionable. We collaborate closely with clients to transform complex data into straightforward strategies that promote growth, innovation, and enduring impact.
     </p>
