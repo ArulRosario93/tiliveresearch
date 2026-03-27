@@ -3,6 +3,7 @@ import "./NavBar.css";
 import { useNavigate } from 'react-router';
 import NavBarContentAbsolute from "./NavBarContent/NavBarContent";
 import NavBarSearchBar from "./NavBarContent/NavBarSearchBar/NavBarSearchBar";
+import logo from "../../assets/mediumsmall.png";
 
 const NavBar = () => {
 
@@ -33,7 +34,7 @@ const NavBar = () => {
         <div className="NavBar">
 
             <div className="NavBarLogo">
-                logo
+                <img src={logo} alt="" srcset="" />
             </div>
 
             <div className="NavBarContent">

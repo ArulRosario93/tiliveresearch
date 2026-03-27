@@ -9,6 +9,7 @@ const FootBar = () => {
         navigate("/aboutus/")
         window.scroll(0, 0)
     }
+
     const handleNavigatetoContactUs = () => {
         navigate("/contactus/");
         window.scroll(0, 0)
@@ -43,11 +44,11 @@ const FootBar = () => {
             </div>
             <div className='FootBarContactUs'>
                 <h3 className='FootBarHead'>Contact Us</h3>
-                <p className='FootBarPara'>Office 4/27, Example Area, Pune. 411014</p>
+                <p className='FootBarPara'>203, Vista Centerpoint, NIBM Rd Extn. Pune- 411060</p>
 
                 <br />
-                <p className='FootBarPara'><b>Phone:</b> +91 1234567890</p>
-                <p className='FootBarPara'><b>Email:</b> example@example.com</p>
+                <p className='FootBarPara'><b>Phone:</b> +91 9623441273</p>
+                <p className='FootBarPara'><b>Email:</b> admin@tiliveresearch.com</p>
             </div>
         </div>
     );
