@@ -7,7 +7,7 @@ import logo from "../../assets/mediumsmall.png";
 
 const NavBar = () => {
 
-    const navItem = ['Reports', 'About Us'];
+    const navItem = ['Reports', 'About Us', "Press Release", "Blogs"];
     const navigate = useNavigate();
 
     const [navHover, setNavHover] = useState('');
