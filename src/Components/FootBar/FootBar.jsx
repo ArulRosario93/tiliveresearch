@@ -44,10 +44,11 @@ const FootBar = () => {
             </div>
             <div className='FootBarContactUs'>
                 <h3 className='FootBarHead'>Contact Us</h3>
-                <p className='FootBarPara'>203, Vista Centerpoint, NIBM Rd Extn. Pune- 411060</p>
+                <p className='FootBarPara'>203, Vista Centerpoint</p> 
+                <p className='FootBarPara'>NIBM Rd Extn. Pune - 411 060 IN</p>
 
                 <br />
-                <p className='FootBarPara'><b>Phone:</b> +91 9623441273</p>
+                <p className='FootBarPara'><b>Phone:</b> +91 96234 41273</p>
                 <p className='FootBarPara'><b>Email:</b> admin@tiliveresearch.com</p>
             </div>
         </div>

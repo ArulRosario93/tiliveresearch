@@ -80,7 +80,7 @@ const HowToOrderPage = () => {
 
                 <p className='HowToOrderPageInPara'>📧 Email: sales@tiliveresearch.com
 </p>
-                <p className='HowToOrderPageInPara'>📞 Phone: [XXXXXX]
+                <p className='HowToOrderPageInPara'>📞 Phone: +91 96234 41273
 </p>
 
 
