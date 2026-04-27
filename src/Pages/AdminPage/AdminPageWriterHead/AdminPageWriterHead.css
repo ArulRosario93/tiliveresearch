@@ -1,17 +1,166 @@
-
-
-.AdminPageContentContainerWriterHead{
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: 600;
+.WriterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.AdminPageContentContainerWriterHeadInput{
+.FormRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.FormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.FormGroup label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.FormInput {
     font-family: inherit;
     width: 100%;
     outline: none;
-    padding: 12px;
-    border: .1px solid rgba(128, 128, 128, 0.462);
-    background-color: rgb(243, 249, 255);
-    border-radius: 3px;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.FormInput:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.TextArea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Add to bottom of AdminPageWriterHead.css */
+
+.CheckboxGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 4px 0 8px 0;
+}
+
+.CheckboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+    font-weight: 500 !important;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.CheckboxLabel:hover {
+    color: #0f172a;
+}
+
+.CheckboxLabel input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #4f46e5;
+    margin: 0;
+}
+/* Custom Multi-Select Dropdown Styles */
+.CustomDropdown {
+    position: relative;
+    width: 100%;
+}
+
+.DropdownHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.DropdownHeader:hover {
+    background-color: #ffffff;
+    border-color: #94a3b8;
+}
+
+.DropdownSelectedText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #0f172a;
+}
+
+/* Default color when no selection is made */
+.DropdownSelectedText:contains("Select") {
+    color: #94a3b8;
+}
+
+.DropdownArrow {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+    color: #64748b;
+}
+
+.DropdownArrow.Open {
+    transform: rotate(180deg);
+}
+
+.DropdownMenu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+
+.DropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #334155;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+.DropdownItem:hover {
+    background-color: #f1f5f9;
+}
+
+.DropdownItem input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #4f46e5;
+    margin: 0;
 }

@@ -1,4 +1,5 @@
 import './App.css';
+import * as Report from '../src/Scheme/Report';
 import FootBar from './Components/FootBar/FootBar';
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
@@ -14,6 +15,7 @@ import HowToOrderPage from './Pages/HowToOrderPage/HowToOrderPage';
 import TermnConditionPage from './Pages/TermsnConditionsPage/TermsnConditionPage';
 
 function App() {
+
 
   const router = createBrowserRouter([
     {
@@ -51,6 +53,10 @@ function App() {
     {
       path: "/termsCondition",
       element: <TermnConditionPage />
+    },
+    {
+      path: "/admin",
+      element: <AdminPage />
     },
   ]);
 

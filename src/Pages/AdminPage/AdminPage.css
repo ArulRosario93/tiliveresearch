@@ -1,152 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-.AdminPage{
+.AdminPage {
     display: flex;
-    flex-direction: row;
-    background: rgb(255, 255, 255);
-    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
 }
 
-.AdminPageLabel{
-    width: 250px;
-}
-
-.AdminPageLabelLogo{
-    height: 80px;
-    background-color: #3D2BE2;
-    margin-bottom: 50px;
-}
-
-.AdminPageLabelText{
-    padding: 15px;
+/* Sidebar */
+.AdminSidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.AdminLogo {
+    height: 80px;
+    display: flex;
     align-items: center;
-    gap: 10px   ;
-    font-size: 14px;
-    text-align: center;
+    padding: 0 24px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #4f46e5;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.AdminNav {
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.NavItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #64748b;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
-.AdminPageLabelTextSelected{
-    /* border-top: 1px solid gray; */
-    background-color: #3D2BE2;
-    color: white;
+.NavItem:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
 }
 
-.AdminPageContent{
+.NavItem.Active {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+.NavIcon {
+    margin-right: 12px;
+    font-size: 20px !important;
+}
+
+/* Main Area */
+.AdminMain {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 15px 50px 15px;
-    background-color: rgb(243, 249, 255);
+    overflow-y: auto;
 }
 
-.AdminPageContentHead{
-    font-size: 25px;
-    margin-bottom: 15px;
-}
-
-.AdminPageContentContainer{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-}
-
-.AdminPageContentContainerWriter{
-    flex: 1;
-    padding: 20px 25px;
-    width: 100%;
-}
-
-.AdminPageContentContainerPreview{
-    flex: 1;
-    padding: 20px 25px;
-    width: 100%;
-}
-
-.AdminPageContentContainerWriterAdminBtns{
+.AdminHeader {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.AdminPageContentContainerWriterAdminSection{
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    width: max-content;
-    padding: 10px 15px;
-    cursor: pointer;
-    gap: 10px;
-    border-radius: 3px;
-    background-color: #3D2BE2;
+    padding: 32px 48px;
 }
 
-.AdminPageContentContainerWriterAdminSectionBtn{
-    color: white;
+.AdminHeader h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.AdminWorkspace {
+    display: flex;
+    gap: 24px;
+    padding: 0 48px 48px;
+    align-items: flex-start;
+}
+
+.AdminCard {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.WriterCard {
+    flex: 1.2;
+    padding: 32px;
+}
+
+.PreviewCard {
+    flex: 1;
+    position: sticky;
+    top: 24px;
+}
+
+/* Buttons */
+.BtnPrimary, .BtnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 6px;
     font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
 }
 
-.AdminPageContentContainerPreviewHead{
-    font-size: 15px;
-    margin-bottom: 10px;
+.BtnPrimary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.BtnPrimary:hover {
+    background-color: #4338ca;
+}
+
+.BtnSecondary {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+.BtnSecondary:hover {
+    background-color: #e2e8f0;
+}
+
+.BtnIcon {
+    font-size: 18px !important;
+    margin-right: 8px;
+}
+
+.IconBtn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.IconBtn:hover {
+    color: #4f46e5;
+    background-color: #e0e7ff;
+}
+
+.WriterActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Preview Area */
+.PreviewHeader {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PreviewHeader h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.Badge {
+    background-color: #e0e7ff;
+    color: #4338ca;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: 600;
 }
 
-.AdminPageContentContainerPreviewTitle{
+.PreviewContent {
+    padding: 24px;
+}
 
+.PreviewHeadSection {
+    margin-bottom: 24px;
+}
+
+.PreviewTitle {
     font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 5;
-}
-
-.AdminPageContentContainerPreviewFlexIt{
+    font-weight: 600;
+    margin: 0 0 8px 0;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 10px;
 }
 
+.PreviewMeta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 12px;
+}
 
-.AdminPageContentContainerPreviewDescription{
+.PreviewDescription {
     font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
     white-space: pre-wrap;
 }
 
-.AdminPageContentContainerPreviewSections{
+.PreviewSectionsNav {
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px;
+    overflow-x: auto;
 }
 
-.AdminPageContentContainerPreviewSectionTitle{
-    margin: 10px 0px;
-    font-size: 15px;
-    font-weight: 500;
-    font-style: italic;
-    cursor: pointer;
-    flex: 1;
-}
-
-.AdminPageContentContainerPreviewSectionDescription{
+.SectionTab {
+    background: none;
+    border: none;
+    padding: 8px 16px;
     font-size: 14px;
-    font-weight: 400;
-        white-space: pre-wrap;
-}
-
-.AdminPageContentContainerPreviewSectionImageContainer{
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 6px;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 8px;
 }
 
-.AdminPageContentContainerPreviewSectionImage{
-    width: 100px;
-    height: 60px;
+.SectionTab:hover {
+    background-color: #f1f5f9;
+}
+
+.SectionTab.ActiveTab {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.EditTabIcon {
+    opacity: 0.6;
+}
+.EditTabIcon:hover {
+    opacity: 1;
+}
+
+.SectionContentText {
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 16px;
+}
+
+.SectionImageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.SectionImageGrid img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Added for Part Preview */
+.PreviewPartBlock {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.PreviewPartBlock:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }

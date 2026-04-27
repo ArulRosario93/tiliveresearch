@@ -1,304 +1,295 @@
 import React, { useState } from "react";
 import './AdminPage.css';
 import AddIcon from '@mui/icons-material/Add';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import EditIcon from '@mui/icons-material/Edit';
 import AdminPageWriterHead from "./AdminPageWriterHead/AdminPageWriterHead";
 import AdminPageWriterSection from "./AdminPageWriterSection/AdminPageWriterSection";
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
-import EditIcon from '@mui/icons-material/Edit';
 
 const AdminPage = () => {
-
     const [index, setIndex] = useState(0);
     const [editSectionIndex, setEditSectionIndex] = useState(null);
     const [editing, setEditing] = useState(false);
+    const [selectedPreview, setSelectedPreview] = useState(0);
 
+    // Root Data Payload
     const [data, setData] = useState({
         title: '',
         description: '',
+        publishedDate: '',
+        reportCode: '',
+        industry: [], // New Industry Field (Array for multiple selections)
+        timestamp: '', 
         sections: [],
-        sampleReportPDF: null,
     });
 
-    const [sampleReportPDF, setSampleReportPDF] = useState(null);
-
+    // Active Section being drafted
     const [section, setSection] = useState({
-        sectionTitle: '',
-        sectionImage: [],
-        sectionDescription: '',
+        title: '',
+        parts: [{ content: '', images: [] }]
     });
 
-    const [selectedPreview, setSelectedPreview] = useState(null);
-
-    const handleTitleChange = (e) => {
-        setData((preV) => ({
-            ...preV,
-            title: e.target.value,
-        }));
-
+    const handleDataChange = (e) => {
+        const { name, value } = e.target;
+        setData((prev) => ({ ...prev, [name]: value }));
     }
 
-    const handleDescriptionChange = (e) => {
-        setData((preV) => ({
-            ...preV,
-            description: e.target.value,
-        }));
-    }
+    // Handles the new Industry Checkboxes
+    const handleIndustryChange = (e) => {
+        const { value, checked } = e.target;
+        setData((prev) => {
+            const currentIndustries = [...prev.industry];
+            if (checked) {
+                currentIndustries.push(value);
+            } else {
+                const idx = currentIndustries.indexOf(value);
+                if (idx > -1) currentIndustries.splice(idx, 1);
+            }
+            return { ...prev, industry: currentIndustries };
+        });
+    };
 
     const handleSectionTitleChange = (e) => {
-        setSection((preV) => ({
-            ...preV,
-            sectionTitle: e.target.value,
-        }));
-
+        setSection(prev => ({ ...prev, title: e.target.value }));
     }
 
-    const handleSectionDescriptionChange = (e) => {
-        setSection((preV) => ({
-            ...preV,
-            sectionDescription: e.target.value,
-        }));
-
-
+    const handlePartContentChange = (partIndex, value) => {
+        const newParts = [...section.parts];
+        newParts[partIndex].content = value;
+        setSection(prev => ({ ...prev, parts: newParts }));
     }
 
-    const handleSectionImageChange = (e) => {
+    const handlePartImageChange = async (partIndex, e) => {
+        const files = Array.from(e.target.files);
+        if (files.length > 0) {
+            // Convert all selected files to Base64 strings
+            const base64Promises = files.map(file => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = error => reject(error);
+                });
+            });
 
-        const file = e.target.files;
-        if (file) {
-
-            setSection((preV) => ({
-                ...preV,
-                sectionImage: [...preV.sectionImage, ...file],
-            }));
-
-        }
-
-    }
-
-    const handleSampleReportChange = (e) => {
-
-        const file = e.target.files;
-        if (file) {
-            setSampleReportPDF(file[0]);
-            setData((preV) => ({
-                ...preV,
-                sampleReportPDF: file[0],
-            }));
+            try {
+                const base64Images = await Promise.all(base64Promises);
+                const newParts = [...section.parts];
+                newParts[partIndex].images = [...newParts[partIndex].images, ...base64Images];
+                setSection(prev => ({ ...prev, parts: newParts }));
+            } catch (error) {
+                console.error("Failed to read image files:", error);
+            }
         }
     }
-
-    const handleChangePreviewDescription = (i) => {
-        setSelectedPreview(i)
+    const handleAddPartToSection = () => {
+        setSection(prev => ({
+            ...prev,
+            parts: [...prev.parts, { content: '', images: [] }]
+        }));
     }
 
-    const handleChangeInTitle = () => {
+    const handleRemovePartFromSection = (partIndex) => {
+        const newParts = section.parts.filter((_, idx) => idx !== partIndex);
+        setSection(prev => ({ ...prev, parts: newParts }));
+    }
+
+    const handleEditHead = () => {
         setEditing(true);
-        
-        var currentDataSection = data;
-        
-        setData((preV) => ({
-            ...preV,
-            title: currentDataSection.title,
-            description: currentDataSection.description,
-        }));
-        
+        setEditSectionIndex(null);
         setIndex(0);
     }
 
-    const handleSectionChangeWithindex = (i) => {
-
+    const handleEditSection = (i) => {
         setIndex(1);
         setEditing(true);
         setEditSectionIndex(i);
-        var currentDataSection = data.sections[i];
-
-        setSection(() => ({
-            sectionTitle: currentDataSection.sectionTitle,
-            sectionImage: currentDataSection.sectionImage,
-            sectionDescription: currentDataSection.sectionDescription,
-        }));
-
+        setSection({
+            title: data.sections[i].title,
+            parts: data.sections[i].parts,
+        });
     }
 
     const handleSaveChanges = () => {
-        if(editSectionIndex === 0){
-            setData((preV) => ({
-                ...preV,
-                title: data.title,
-                description: data.description,
-            }));
+        if (editSectionIndex === null) {
             setEditing(false);
+            setIndex(1);
             return;
         }
 
-        setData((preV) => ({
-            ...preV,
-            sections: preV.sections.map((item, i) => i === editSectionIndex ? section : item),
+        setData((prev) => ({
+            ...prev,
+            sections: prev.sections.map((item, i) => i === editSectionIndex ? section : item),
         }));
-        setSection(() => ({
-            sectionTitle: '',
-            sectionImage: [],
-            sectionDescription: '',
-        }));
-        setSelectedPreview(0);
-        setEditing(false);
-
-        setIndex(index + 1);
+        
+        resetSectionState();
     }
 
     const handleAddSection = () => {
-
-        if (index === 0){
-
-            if(data.title.trim().length > 3 && data.description.trim().length > 3){
-
-                setIndex(index + 1);
-
-            }else{
-                alert('Title and Description should be above 3 characters');
+        if (index === 0) {
+            if (data.title.trim().length > 3) {
+                setIndex(1);
+            } else {
+                alert('Please enter a valid Report Title');
             }
-
-        }else {
-
-            if(section.sectionTitle.trim().length > 2 && section.sectionDescription.trim().length > 3){
-
-                setData((preV) => ({
-                    ...preV,
-                    sections: [...preV.sections, section]
+        } else {
+            if (section.title.trim().length > 2 && section.parts[0].content.trim().length > 2) {
+                setData((prev) => ({
+                    ...prev,
+                    sections: [...prev.sections, section]
                 }));
-
-                setSection(() => ({
-                    sectionTitle: '',
-                    sectionImage: [],
-                    sectionDescription: '',
-                }));
-
-                setSelectedPreview(0);
-
-                setIndex(index + 1);
-            } else{
-                alert('Title and Description should be above 3 characters');
+                resetSectionState();
+            } else {
+                alert('Section must have a title and at least one part with content.');
             }
         }
-
     }
 
-    const handleCurrentSection = () => {
+    const resetSectionState = () => {
+        setSection({ title: '', parts: [{ content: '', images: [] }] });
+        setSelectedPreview(data.sections.length); 
+        setEditing(false);
+        setIndex(1);
+    }
 
-        return index == 0 ? 
-            <AdminPageWriterHead handleTitle={handleTitleChange} titleValue={data.title} descriptionValue={data.description} handleDescription={handleDescriptionChange} /> : 
-                <AdminPageWriterSection images={section.sectionImage} handleImageChange={handleSectionImageChange} handleDescriptionChange={handleSectionDescriptionChange} titleValue={section.sectionTitle} descriptionValue={section.sectionDescription} handleTitleChange={handleSectionTitleChange}  />
+const submitToBackend = () => {
+        // Prevent upload if they haven't saved any sections
+        if (data.sections.length === 0) {
+            alert("Please save at least one section to the report before publishing!");
+            return;
+        }
 
+        const URL = "https://storied-paprenjak-0a4af7.netlify.app/.netlify/functions/uploadReport";
+
+        const payload = { ...data };
+
+        console.log("Sending Payload to Node.js:", payload);
+
+        fetch(URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content: payload })        
+        })
+        .then(async (response) => {
+            const resData = await response.json();
+            if (!response.ok) throw new Error(resData.error || "Failed to publish");
+            return resData;
+        })
+        .then(resData => {
+            console.log("Response from Node.js:", resData);
+            alert("Report published successfully!");
+            // Optional: reset your form here after success
+        })
+        .catch(error => {
+            console.error("Error publishing report:", error);
+            alert(`Error publishing report: ${error.message}`);
+        });
     }
 
     return(
         <div className="AdminPage">
-
-            <div className="AdminPageLabel">
-
-                <div className="AdminPageLabelLogo">
-                    logo
+            <div className="AdminSidebar">
+                <div className="AdminLogo">Acme Corp</div>
+                <div className="AdminNav">
+                    <p className="NavItem"><DashboardIcon className="NavIcon" /> Dashboard</p>
+                    <p className="NavItem Active"><AddIcon className="NavIcon" /> New Report</p>
                 </div>
-
-                <p className="AdminPageLabelText AdminPageLabelTextSelected">
-                    <DashboardIcon />
-                    Dashboard</p>
-                <p className="AdminPageLabelText">
-                    <AddIcon />
-                    New Report</p>
             </div>
 
-            <div className="AdminPageContent">
+            <div className="AdminMain">
+                <div className="AdminHeader">
+                    <h1>Create New Report</h1>
+                    <button className="BtnPrimary" onClick={submitToBackend}>Publish Report</button>
+                </div>
 
-                <h1 className="AdminPageContentHead">New Report</h1>
+                <div className="AdminWorkspace">
+                    <div className="AdminCard WriterCard">
+                        {index === 0 ? (
+                            <AdminPageWriterHead 
+                                data={data} 
+                                handleDataChange={handleDataChange} 
+                                handleIndustryChange={handleIndustryChange}
+                            />
+                        ) : (
+                            <AdminPageWriterSection 
+                                section={section} 
+                                handleSectionTitleChange={handleSectionTitleChange}
+                                handlePartContentChange={handlePartContentChange}
+                                handlePartImageChange={handlePartImageChange}
+                                handleAddPartToSection={handleAddPartToSection}
+                                handleRemovePartFromSection={handleRemovePartFromSection}
+                            />
+                        )}
 
-                <div className="AdminPageContentContainer">
-
-                    <div className="AdminPageContentContainerWriter">
-
-                        {
-                            handleCurrentSection()
-                        }
-
-                        <br />
-
-                        <div className="AdminPageContentContainerWriterAdminBtns">
-                            <div className="AdminPageContentContainerWriterAdminSection" onClick={editing ? handleSaveChanges :handleAddSection}>
-                                <h3 className="AdminPageContentContainerWriterAdminSectionBtn">{editing ? 'Edit Section' : 'Add Section'}</h3>
-                                <AddIcon style={{color: 'white'}}/>
-                            </div>
-                                <input type="file" accept="pdf*/" name="PDF" hidden id="PDF" onChange={handleSampleReportChange} />
-                                <label htmlFor="PDF">
-                                <div className="AdminPageContentContainerWriterAdminSection">
-                                    <h3 className="AdminPageContentContainerWriterAdminSectionBtn">Add Sample PDF</h3>
-                                    <AddIcon style={{color: 'white'}}/>
-                                </div>
-                            </label>
+                        <div className="WriterActions">
+                            <button className="BtnPrimary" onClick={editing ? handleSaveChanges : handleAddSection}>
+                                <AddIcon className="BtnIcon" /> {editing ? 'Save Changes' : (index === 0 ? 'Next: Add Sections' : 'Save Section to Report')}
+                            </button>
+                            {/* PDF Button removed from here */}
                         </div>
-
                     </div>
 
-                    {
-                        data.title.length > 5 && data.description.length > 5 ? 
-                        <div className="AdminPageContentContainerPreview">
-
-                            <h3 className="AdminPageContentContainerPreviewHead">Preview</h3>
-
-                            <h4 className="AdminPageContentContainerPreviewTitle AdminPageContentContainerPreviewFlexIt">{data.title}
-                                <p onClick={handleChangeInTitle}>
-                                    <EditIcon fontSize="14px" style={{color: '#3D2BE2'}} />
-                                    </p>
-                            </h4>
-                            <p className="AdminPageContentContainerPreviewDescription AdminPageContentContainerPreviewFlexIt">{data.description}
-                                <p onClick={handleChangeInTitle}>
-                                    <EditIcon fontSize="14px" style={{color: '#3D2BE2'}} />
-                                </p>
-                            </p>
-
-                            <div className="AdminPageContentContainerPreviewSections">
-                                {
-                                    data?.sections?.map((item, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <p onClick={() => handleChangePreviewDescription(i)} style={{textDecoration: selectedPreview == i? 'underline': 'none'}} className="AdminPageContentContainerPreviewSectionTitle AdminPageContentContainerPreviewFlexIt">{item.sectionTitle}
-                                                    <p onClick={() => handleSectionChangeWithindex(i)}>
-                                                        <EditIcon fontSize="14px" style={{color: '#3D2BE2'}} />
-                                                    </p>
-                                                </p>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <div className="AdminPageContentContainerPreviewSectionImageContainer">
-                                <p className="AdminPageContentContainerPreviewSectionDescription">{data?.sections[selectedPreview]?.sectionDescription}</p>
-                                {
-                                    data?.sections[selectedPreview]?.sectionImage?.map((item, i) => {
-                                        return(
-                                            <img className="AdminPageContentContainerPreviewSectionImage" src={URL.createObjectURL(item)} key={i} />
-                                        )
-                                    })
-                                }
+                    {data.title && (
+                        <div className="AdminCard PreviewCard">
+                            <div className="PreviewHeader">
+                                <h3>Live Preview</h3>
+                                <span className="Badge">Draft</span>
                             </div>
 
-                            {
-                                sampleReportPDF && (
-                                    <div>
-                                        <h4>Sample Report PDF:</h4>
-                                        <object width="100%" height="400px" data={URL.createObjectURL(sampleReportPDF)} type="application/pdf"></object>
+                            <div className="PreviewContent">
+                                <div className="PreviewHeadSection">
+                                    <h2 className="PreviewTitle">
+                                        {data.title || "Untitled Report"}
+                                        <button className="IconBtn" onClick={handleEditHead}><EditIcon fontSize="small" /></button>
+                                    </h2>
+                                    <div className="PreviewMeta">
+                                        {data.reportCode && <span>Code: {data.reportCode}</span>}
+                                        {data.publishedDate && <span>Date: {data.publishedDate}</span>}
+                                        {data.industry.length > 0 && <span>Industries: {data.industry.join(', ')}</span>}
                                     </div>
-                                )
-                            }
+                                    <p className="PreviewDescription">{data.description}</p>
+                                </div>
 
-                        </div> : null
-                    
-                    }
+                                <div className="PreviewSectionsNav">
+                                    {data.sections.map((sec, i) => (
+                                        <button 
+                                            key={i} 
+                                            className={`SectionTab ${selectedPreview === i ? 'ActiveTab' : ''}`}
+                                            onClick={() => setSelectedPreview(i)}
+                                        >
+                                            {sec.title || `Section ${i + 1}`}
+                                            <span className="EditTabIcon" onClick={(e) => { e.stopPropagation(); handleEditSection(i); }}>
+                                                <EditIcon fontSize="inherit" />
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
 
+                                {data.sections[selectedPreview] && (
+                                    <div className="PreviewSectionBody">
+                                        {data.sections[selectedPreview].parts.map((part, pIndex) => (
+                                            <div key={pIndex} className="PreviewPartBlock">
+                                                <div 
+                                                    className="SectionContentText ql-editor" 
+                                                    dangerouslySetInnerHTML={{ __html: part.content }} 
+                                                />                                                
+                                                {part.images && part.images.length > 0 && (
+                                                <div className="SectionImageGrid">
+                                                    {part.images.map((img, idx) => (
+                                                            <img key={idx} src={img} alt="part-attachment" /> 
+                                                        ))}
+                                                </div>
+                                            )}
+                                    
+                                    </div>
+                                        ))}
+                                    </div>  
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
-
             </div>
-
         </div>
     );
 }
