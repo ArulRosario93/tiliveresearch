@@ -113,3 +113,29 @@
     align-self: flex-start;
     margin-top: 8px;
 }
+
+.QuillContainer {
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 15px;
+}
+
+/* This targets the actual typing area of React Quill to make it visible */
+.ql-editor {
+    min-height: 180px !important; 
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    color: #0f172a;
+}
+
+/* Optional: Clean up the toolbar border to match your design */
+.ql-toolbar.ql-snow {
+    border: none !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    background-color: #f8fafc;
+    border-radius: 8px 8px 0 0;
+}
+
+.ql-container.ql-snow {
+    border: none !important;
+}

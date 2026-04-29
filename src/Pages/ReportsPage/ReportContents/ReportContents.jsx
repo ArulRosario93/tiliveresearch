@@ -3,78 +3,7 @@ import './ReportContents.css';
 import CurrentPageLocation from "../../../Components/CurrentPageLocation/CurrentPageLocation";
 import ReportContentsHeader from "./ReportContentsHeader/ReportContentsHeader";
 
-// (Keep your imageLibrary imports here if you still need local fallbacks)
-// import picture1 from '../../../assets/Picture1.png'; ...
-
 const ReportContents = ({ reportData, currentReportLabel, changelabels }) => {
-
-    const formatBold = (text) => {
-        if (!text) return null;
-        const parts = text.split(/'([^']+)'/g);
-        return parts.map((part, i) => (
-            i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-        ));
-    };
-
-    const BULLETS = ["•", "◦", "▪", "▫", "–", "→"];
-    const TAB_SIZE = 24;
-
-    // Helper function to render text with bullets/images like your original logic
-    const renderContentBlocks = (contentString, isTOC = false) => {
-        if (!contentString) return null;
-        const lines = contentString.split('\n');
-
-        return lines.map((line, index) => {
-            const trimmedLine = line.trim();
-
-            if (trimmedLine === "") {
-                return <div key={index} style={{ height: '1.2em' }} />;
-            }
-
-            if (isTOC) {
-                const tocMatch = trimmedLine.match(/^(\d+(\.\d+)*\.?)\s+(.*)/);
-                if (tocMatch) {
-                    const numberPart = tocMatch[1];
-                    const textPart = tocMatch[3];
-                    const dotCount = (numberPart.match(/\./g) || []).length;
-                    const indent = dotCount * 20; 
-
-                    return (
-                        <div key={index} style={{ display: 'flex', paddingLeft: `${indent}px`, marginBottom: '4px' }}>
-                            <span style={{ minWidth: '60px', display: 'inline-block', color: '#666', flexShrink: 0 }}>
-                                {numberPart}
-                            </span>
-                            <span style={{ textAlign: 'left' }}>{textPart}</span>
-                        </div>
-                    );
-                }
-            }
-
-            if (trimmedLine.startsWith('•')) {
-                const level = (trimmedLine.match(/•/g) || []).length;
-                const bullet = BULLETS[(level - 1) % BULLETS.length] || "•";
-                const cleanText = trimmedLine.replace(/•+/g, "").trim();
-                const hasLabel = cleanText.match(/^([^:]+):/);
-
-                if (hasLabel) {
-                    return (
-                        <li key={index} style={{ marginLeft: `${level * TAB_SIZE}px`, marginBottom: '8px' }}>
-                            <strong>{hasLabel[1]}:</strong> {formatBold(cleanText.replace(/^[^:]+:/, ""))}
-                        </li>
-                    );
-                }
-                return (
-                    <div key={index} style={{ paddingLeft: `${level * TAB_SIZE}px`, display: "flex", alignItems: "flex-start", marginBottom: '8px' }}>
-                        <span style={{ marginRight: 8 }}>{bullet}</span>
-                        <span>{formatBold(cleanText)}</span>
-                    </div>
-                );
-            }
-
-            return <p key={index} style={{ margin: 0, paddingBottom: '4px' }}>{formatBold(trimmedLine)}</p>;
-        });
-    };
-
 
     // Find if the current label matches a dynamic section
     const activeSection = reportData.sections?.find(
@@ -106,7 +35,12 @@ const ReportContents = ({ reportData, currentReportLabel, changelabels }) => {
                 {activeSection ? (
                     activeSection.parts.map((part, pIndex) => (
                         <div key={pIndex} style={{ marginBottom: '20px' }}>
-                            {renderContentBlocks(part.content, currentReportLabel.includes('tableofcontent'))}
+                            
+                            {/* FIX: Render the rich text HTML string correctly */}
+                            <div 
+                                className="SectionContentText ql-editor" 
+                                dangerouslySetInnerHTML={{ __html: part.content }} 
+                            />
                             
                             {/* Render Images if they exist from the backend payload */}
                             {part.images && part.images.map((imgUrl, iIdx) => (

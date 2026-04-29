@@ -295,3 +295,52 @@
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+.AdminLoadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999; /* Ensure it stays on top of everything */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.AdminLoadingOverlay h2 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #0f172a;
+    font-size: 24px;
+}
+
+.AdminLoadingOverlay p {
+    color: #64748b;
+    font-size: 14px;
+    max-width: 300px;
+}
+
+.AdminSpinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #e0e7ff;
+    border-top: 6px solid #4f46e5; /* Primary color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add a disabled state to buttons to look better while loading */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

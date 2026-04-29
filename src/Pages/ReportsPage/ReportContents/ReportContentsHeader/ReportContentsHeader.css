@@ -6,6 +6,7 @@
     flex-direction: row;
     gap: 150px;
     max-width: 100%;
+    align-items: center;
 }
 .ReportContentsHeaderText{
     font-family: "Poppins", sans-serif;

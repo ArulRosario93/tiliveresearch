@@ -69,7 +69,8 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
                 <div className="CustomDropdown">
                     <div className="DropdownHeader" onClick={toggleDropdown}>
                         <span className="DropdownSelectedText">
-                            {data.industry.length > 0 
+                            {/* FIX: Added ?. to safely check length */}
+                            {data.industry?.length > 0 
                                 ? data.industry.join(", ") 
                                 : "Select Industries..."}
                         </span>
@@ -83,7 +84,7 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
                                     <input
                                         type="checkbox"
                                         value={ind}
-                                        checked={data.industry.includes(ind)}
+                                        checked={(data.industry || []).includes(ind)}
                                         onChange={handleIndustryChange}
                                     />
                                     {ind}
