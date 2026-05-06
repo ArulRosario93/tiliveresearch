@@ -101,3 +101,25 @@
         position: sticky;
     }
 }
+
+/* Fix the mobile bottom bar so it doesn't hide content */
+@media (max-width: 768px) {
+    .ReportLabelsAbsoluteMobileBottom {
+        display: flex;
+        flex-direction: row; /* Horizontal buttons on mobile look cleaner */
+        gap: 10px;
+        background-color: white;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Ensure the main content doesn't get cut off by the fixed bar */
+    .ReportsPageContainer {
+        padding-bottom: 80px; 
+    }
+}

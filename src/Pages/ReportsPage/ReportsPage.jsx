@@ -5,6 +5,7 @@ import ReportContents from "./ReportContents/ReportContents";
 import ReportLabels from "./ReportLabels/ReportLabels";
 import FootBar from "../../Components/FootBar/FootBar";
 import './ReportsPage.css';
+import ReportContactModal from "./ReportContactModel/ReportContactModel";
 
 const ReportsPage = () => {
     // Assuming your route is setup like /reports/:reportTitle
@@ -13,6 +14,11 @@ const ReportsPage = () => {
     const [reportData, setReportData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [currentReportLabel, setCurrentReportLabel] = useState("");
+    const [modalConfig, setModalConfig] = useState({ isOpen: false, type: '' });
+
+    const openModal = (type) => {
+        setModalConfig({ isOpen: true, type });
+    };
 
     useEffect(() => {
         // Scroll to top on load
@@ -83,9 +89,17 @@ const ReportsPage = () => {
                 <ReportLabels 
                     reportData={reportData} 
                     changelabels={handleChangeLabel} 
-                    currentReportLabel={currentReportLabel} 
+                    currentReportLabel={currentReportLabel}
+                    onOpenModal={openModal} // Pass this down
                 />
             </div>
+
+            <ReportContactModal 
+                isOpen={modalConfig.isOpen} 
+                type={modalConfig.type} 
+                reportTitle={reportData.title}
+                onClose={() => setModalConfig({ isOpen: false, type: '' })}
+            />
         </div>
     );
 }

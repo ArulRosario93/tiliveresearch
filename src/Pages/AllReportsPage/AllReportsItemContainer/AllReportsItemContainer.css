@@ -32,3 +32,16 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.AllReportsItemMeta{
+    display: flex;
+    gap: 12px;
+}
+.AllReportsItemMeta .Tag{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.562);
+}
+.AllReportsItemMeta .Date{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.562);
+}

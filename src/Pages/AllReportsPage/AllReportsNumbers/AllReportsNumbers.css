@@ -1,20 +1,32 @@
-
-.AllReportsNumbers{
+.AllReportsNumbers {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    gap: 10px;
 }
 
-.AllReportsNumbersPara{
-    padding: 10px;
-    width: 40px;
-    height: 40px;
+.AllReportsNumbersPara {
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: transparent;
+    color: #513ef7;
+    border: 1px solid #513ef7;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.AllReportsNumbersPara:hover {
+    background-color: #f0f0f0;
+}
+
+.AllReportsNumbersPara.activePage {
+    background-color: #513ef7;
     color: white;
-    border: 1px solid white;
 }

@@ -1,18 +1,17 @@
-
 import React from 'react';
 import './AllReportsLabel.css';
-import { ArrowForward } from '@mui/icons-material';
-import DividerHori from '../../../Components/Divider/DividerHori';
+import { ChevronRight } from '@mui/icons-material';
 
-const AllReportsLabel = ({ name, selected }) => {
-
+const AllReportsLabel = ({ name, active, onClick }) => {
     return (
-        <div className='AllReportsLabelContainerOuter'>
+        <div 
+            className={`AllReportsLabelContainerOuter ${active ? 'active' : ''}`} 
+            onClick={onClick}
+        >
             <div className='AllReportsLabelContainer'>
-                <ArrowForward fontSize='small' />
+                <ChevronRight fontSize='small' className="icon" />
                 <p className='AllReportsLabelContainerPara'>{name}</p>
             </div>
-            
         </div>
     );
 }

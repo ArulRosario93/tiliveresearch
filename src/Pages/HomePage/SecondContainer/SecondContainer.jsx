@@ -76,9 +76,9 @@ const SecondContainer = () => {
         },
     ];
 
-    const navigate = (name) => {
+    const navigate = () => {
         // cosol
-        navigateIt(`/services/${name}`);
+        navigateIt(`/reports`);
     }
 
     return (

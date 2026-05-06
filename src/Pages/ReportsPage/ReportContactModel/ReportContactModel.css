@@ -1,0 +1,39 @@
+.ModalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.ModalContent {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    font-family: "Poppins", sans-serif;
+}
+.ModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ModalSub { font-size: 12px; color: #666; margin-bottom: 20px; }
+.ModalForm { display: flex; flex-direction: column; gap: 15px; }
+.ModalForm input, .ModalForm textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.SubmitBtn {
+    background: #3D2BE2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.CloseBtn { background: none; border: none; font-size: 24px; cursor: pointer; }

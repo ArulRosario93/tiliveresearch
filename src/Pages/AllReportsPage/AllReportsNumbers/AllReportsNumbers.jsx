@@ -1,17 +1,24 @@
-
 import React from 'react';
-import './AllReportsNumbers.css'
+import './AllReportsNumbers.css';
 
-const AllReportsNumbers = () => {
+const AllReportsNumbers = ({ totalPages, currentPage, setCurrentPage }) => {
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+    }
+
     return (
         <div className='AllReportsNumbers'>
-
-            <p></p>
-            <p className='AllReportsNumbersPara'>1</p>
-            <p className='AllReportsNumbersPara'>2</p>
-            <p className='AllReportsNumbersPara'>3</p>
-            <p className='AllReportsNumbersPara'>4</p>
-
+            {pageNumbers.map(number => (
+                <p 
+                    key={number}
+                    className={`AllReportsNumbersPara ${currentPage === number ? 'activePage' : ''}`}
+                    onClick={() => setCurrentPage(number)}
+                >
+                    {number}
+                </p>
+            ))}
         </div>
     );
 }

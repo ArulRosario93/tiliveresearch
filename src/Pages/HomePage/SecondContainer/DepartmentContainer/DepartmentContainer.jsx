@@ -3,7 +3,7 @@ import './DepartmentContainer.css';
 const DepartmentContainer = ({ key, department, handleClick }) => { 
 
     return (
-        <div key={key} onClick={() => handleClick(department.camelCased)} className="DepartmentContainer">
+        <div key={key} onClick={handleClick} className="DepartmentContainer">
 
             <div className="DepartmentContainerAbsolute">
 

@@ -20,6 +20,7 @@ const ReportLabelsContainer = ({ text, sample, selected, buy, showContentOnly, s
                         <input type="checkbox" name="Corporate" id="corp" />
                         <label htmlFor="corp">Corporate License ($5500)</label>
                     </div>
+                    <p style={{ borderRadius: '0px' }} className="ReportLabelsContainerBuyLayerHeader">Buy Now</p>
                 </div>
             ) : (
                 <>

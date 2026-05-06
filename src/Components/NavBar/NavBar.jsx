@@ -13,14 +13,14 @@ const NavBar = () => {
     const [navHover, setNavHover] = useState('');
 
     const handleMouseOver = (e) => {
-        if(e.target.innerText == 'About Us'){
-            return;
-        }
-        setNavHover(e.target.innerText);
+        // if(e.target.innerText == 'About Us'){
+        //     return;
+        // }
+        // setNavHover(e.target.innerText);
     }
 
     const handleMouseLeave = (e) => {
-        setNavHover('');
+        // setNavHover('');
     }
 
     const handleNavigatetoReports = () => {

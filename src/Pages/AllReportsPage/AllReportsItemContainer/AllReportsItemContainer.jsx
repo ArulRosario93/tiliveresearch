@@ -1,28 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import './AllReportsItemContainer.css';
-import Divider from "../../../Components/Divider/Divider";
 import DividerHori from "../../../Components/Divider/DividerHori";
 
-const AllReportsItemContainer = ({ title, description, date, last }) => {
+const AllReportsItemContainer = ({ title, description, date, category, last }) => {
     const navigate = useNavigate();
 
-    const handleNavigation = () => {
-        navigate(`/reports/${title}`);
-    }
-
     return (
-        <div className="AllReportsItemContainer" onClick={handleNavigation}>
+        <div className="AllReportsItemContainer" onClick={() => navigate(`/reports/${title}`)}>
             <h2 className="AllReportsItemContainerHead">{title}</h2>
-            <p className="AllReportsItemContainerDescription">{description}...</p>
-            {/* <p className="AllReportsItemContainerDate"><b>Published On: </b>{date}</p> */}
-            <p className="AllReportsItemContainerDate"><b>Domain: </b>Semiconductor & Electronics</p>
-
-            <br />
-            {
-                !last ? <DividerHori /> : null
-            }
-
+            <p className="AllReportsItemContainerDescription">{description}</p>
+            <div className="AllReportsItemMeta">
+                <span className="Tag">{category}</span>
+                <span className="Date">Published: {date}</span>
+            </div>
+            {!last && <DividerHori />}
         </div>
     );
 }
