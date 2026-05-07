@@ -333,7 +333,53 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
+/* --- Dashboard Table Styles --- */
+.DashboardCard {
+    width: 100%;
+    padding: 24px;
+    background: #ffffff;
+}
 
+.DashboardLoading {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-size: 16px;
+}
+
+.DashboardTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.DashboardTable th {
+    padding: 16px;
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.DashboardTable td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.DashboardTable tr:hover td {
+    background-color: #f8fafc;
+}
+
+.DashboardTable td.MainTitle {
+    font-weight: 600;
+    color: #0f172a;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -344,3 +390,4 @@ button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+

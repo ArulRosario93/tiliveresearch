@@ -23,26 +23,33 @@ const ReportsPage = () => {
     useEffect(() => {
         // Scroll to top on load
         window.scroll(0, 0);
-
         const fetchReportData = async () => {
+            setLoading(true);
             try {
-                // Adjust URL to your actual endpoint to get a single report or all reports
-                // Send the reportTitle as a query param if your backend supports it for better performance
-                const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports?title=${reportid}`; // Example URL with query params
+                const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports?title=${encodeURIComponent(reportid)}`;
                 const response = await fetch(URL);
                 const data = await response.json();
-                console.log("Fetched report data:", data);
-                // Assuming the API returns an array, find the matching report
-                // In production, it's better to fetch by ID directly from the server
-                const matchedReport = data['title'] === reportid ? data : null;
+                
+                console.log("Fetched report data:", data, response);
+                // Check if the server actually returned an error
+                if (!response.ok) {
+                    throw new Error(data.error || "Server Error");
+                }
+
+                // If data is the object itself, use it; if it's an array, find it.
+                const matchedReport = data.title === reportid ? data : null;
                 
                 setReportData(matchedReport);
-                setLoading(false);
-                setCurrentReportLabel(matchedReport ? matchedReport.sections && matchedReport.sections.length > 0 ? matchedReport.sections[0].title.replaceAll(' ', '').toLowerCase() : 'description' : 'description'); // Set default label to description
 
-                    
+                if (matchedReport?.sections?.length > 0) {
+                    setCurrentReportLabel(matchedReport.sections[0].title.replace(/\s+/g, '').toLowerCase());
+                } else {
+                    setCurrentReportLabel('description');
+                }
             } catch (error) {
                 console.error("Failed to fetch report data:", error);
+                setReportData(null);
+            } finally {
                 setLoading(false);
             }
         };
