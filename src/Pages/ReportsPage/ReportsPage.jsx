@@ -28,10 +28,10 @@ const ReportsPage = () => {
             try {
                 // Adjust URL to your actual endpoint to get a single report or all reports
                 // Send the reportTitle as a query param if your backend supports it for better performance
-                const URL = `https://storied-paprenjak-0a4af7.netlify.app/.netlify/functions/getReports?title=${reportid}`;
+                const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports?title=${reportid}`; // Example URL with query params
                 const response = await fetch(URL);
                 const data = await response.json();
-                
+                console.log("Fetched report data:", data);
                 // Assuming the API returns an array, find the matching report
                 // In production, it's better to fetch by ID directly from the server
                 const matchedReport = data['title'] === reportid ? data : null;
@@ -100,6 +100,7 @@ const ReportsPage = () => {
                 reportTitle={reportData.title}
                 onClose={() => setModalConfig({ isOpen: false, type: '' })}
             />
+            <FootBar />
         </div>
     );
 }

@@ -13,6 +13,35 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle }) => {
         }
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: e.target[0].value, // Captures the name from the form
+            type: type,
+            report: reportTitle,
+            email: e.target[1].value, // Captures the email from the form
+            message: e.target[2].value
+        };
+
+        console.log("Form Data to be sent:", formData);
+
+        try {
+            const response = await fetch('/sendEmail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            
+            if (response.ok) {
+                alert("Email sent successfully!");
+                onClose();
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+        }
+    };
+
     return (
         <div className="ModalOverlay">
             <div className="ModalContent">
@@ -21,7 +50,7 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle }) => {
                     <button className="CloseBtn" onClick={onClose}>&times;</button>
                 </div>
                 <p className="ModalSub">Target Report: {reportTitle}</p>
-                <form className="ModalForm">
+                <form className="ModalForm" onSubmit={handleSubmit}>
                     <input type="text" placeholder="Full Name" required />
                     <input type="email" placeholder="Work Email" required />
                     {type === 'purchase' && (

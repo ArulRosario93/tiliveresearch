@@ -79,6 +79,7 @@ const SecondContainer = () => {
     const navigate = () => {
         // cosol
         navigateIt(`/reports`);
+        window.scroll(0, 0);
     }
 
     return (
