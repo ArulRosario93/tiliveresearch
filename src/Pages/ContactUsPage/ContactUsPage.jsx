@@ -23,17 +23,17 @@ const ContactUsPage = () => {
                     <div className="ContactUsPageContentCall">
                         <CallIcon fontSize='large' />
                         <p className="ContactUsPageContentFirstPara">Call Us Today</p>
-                        <p className="ContactUsPageContentSecondPara">000 000 0000</p>
+                        <p className="ContactUsPageContentSecondPara">+91 96234 41273</p>
                     </div>
                     <div className="ContactUsPageContentSendAMessage">
                         <MessageIcon fontSize="large" />
                         <p className="ContactUsPageContentFirstPara">Send a message</p>
-                        <p className="ContactUsPageContentSecondPara">example@example.com</p>
+                        <p className="ContactUsPageContentSecondPara">admin@tiliveresearch.com</p>
                     </div>
                     <div className="ContactUsPageContentOurOffice">
                         <LocationPinIcon fontSize="large" />
                         <p className="ContactUsPageContentFirstPara">Our Office</p>
-                        <p className="ContactUsPageContentSecondPara">123 Main Street, City, Country</p>
+                        <p className="ContactUsPageContentSecondPara">203, Vista Centerpoint, NIBM Rd Extn. Pune - 411 060 IN</p>
 
                     </div>
 

@@ -10,6 +10,8 @@ import AllReportsNumbers from './AllReportsNumbers/AllReportsNumbers';
 const AllReportsPage = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);
+    const [allReports, setAllReports] = useState([]);
+    const [isLoadingReports, setIsLoadingReports] = useState(false);
     const reportsPerPage = 10;
 
     const labels = [
@@ -19,16 +21,34 @@ const AllReportsPage = () => {
         'Energy & Power', 'Food & Beverage',
     ];
 
-    // Assuming 'reports' is your array of 40 objects
-    const reports = [
-        { name: 'Metaverse Market', description: 'Description for Report 1', publishedOn: '2024-01-01', category: 'Healthcare' },
-        { name: 'Humanoid Robot Market', description: 'Description for Report 2', publishedOn: '2024-01-02', category: 'Information & Communications Technology' },
-    ];
+    
+    const fetchAllReports = async () => {
+        setIsLoadingReports(true);
+        try {
+            // Adjust this URL to your actual endpoint that returns ALL reports
+            const response = await fetch("https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports");
+            const result = await response.json();
+            
+            // Handle however your backend returns the array (e.g., result.response or just result)
+            setAllReports(result.response || result || []);
+        } catch (error) {
+            console.error("Failed to fetch reports:", error);
+        } finally {
+            setIsLoadingReports(false);
+        }
+    };
+    
+    const filterReportsByCategory = (category) => {
+        if (category === 'All') {
+            fetchAllReports();
+        } else {
+            setAllReports(allReports.filter(report => report.industry === category));
+        }
+    }
 
-    // 1. Filter reports based on category
-    const filteredReports = selectedCategory === 'All' 
-        ? reports 
-        : reports.filter(report => report.category === selectedCategory);
+    useEffect(() => {
+        fetchAllReports();
+    }, []);
 
     // 2. Reset to page 1 whenever the category changes
     useEffect(() => {
@@ -38,8 +58,8 @@ const AllReportsPage = () => {
     // 3. Logic for Pagination (The 10-10-10 split)
     const indexOfLastReport = currentPage * reportsPerPage;
     const indexOfFirstReport = indexOfLastReport - reportsPerPage;
-    const currentReports = filteredReports.slice(indexOfFirstReport, indexOfLastReport);
-    const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
+    const currentReports = allReports.slice(indexOfFirstReport, indexOfLastReport);
+    const totalPages = Math.ceil(allReports.length / reportsPerPage);
 
     return (
         <div className='AllReportsPage'>
@@ -52,7 +72,11 @@ const AllReportsPage = () => {
                             <AllReportsLabel 
                                 name={item} 
                                 selected={selectedCategory === item} 
-                                onClick={() => setSelectedCategory(item)}
+                                onClick={() => {
+                                    setSelectedCategory(item);
+                                    filterReportsByCategory(item);
+                                    setCurrentPage(1);
+                                }}
                             />
                             {i !== labels.length - 1 ? <DividerHori /> : null}
                         </React.Fragment>
@@ -60,33 +84,40 @@ const AllReportsPage = () => {
                 </div>
 
                 <div className='AllReportsPageContainerContent'>
-                    <p className='AllReportsPageContainerContentHead'>
-                        {selectedCategory} Research Reports
-                    </p>
+                    {
+                        isLoadingReports ? <p className="DashboardLoading">Fetching Reports...</p> :
+                        <>
+                            <p className='AllReportsPageContainerContentHead'>
+                                {selectedCategory} Research Reports
+                            </p>
 
-                    {currentReports.length > 0 ? (
-                        currentReports.map((item, i) => (
-                            <AllReportsItemContainer 
-                                key={i} 
-                                title={item.name} 
-                                category={item.category}
-                                description={item.description} 
-                                date={item.publishedOn} 
-                                last={i === currentReports.length - 1} 
+                            {
+                                allReports.length > 0 ? (
+                                allReports.map((item, i) => (
+                                    <AllReportsItemContainer 
+                                        key={i} 
+                                        title={item.title} 
+                                        category={item.industry}
+                                        description={item.description} 
+                                        date={item.publishedDate} 
+                                        last={i === allReports.length - 1} 
+                                    />
+                                ))
+                            ) : (
+                                <div className='AllReportsPageContainerContentNotAvailable'>
+                                    No Reports Available 
+                                </div>
+                            )}
+
+                            <AllReportsNumbers 
+                                totalPages={totalPages} 
+                                currentPage={currentPage} 
+                                setCurrentPage={setCurrentPage} 
                             />
-                        ))
-                    ) : (
-                        <div className='AllReportsPageContainerContentNotAvailable'>
-                            No Reports Available 
-                        </div>
-                    )}
+                        </>
+                    }
 
-                    {/* Pass pagination props to the numbers component */}
-                    <AllReportsNumbers 
-                        totalPages={totalPages} 
-                        currentPage={currentPage} 
-                        setCurrentPage={setCurrentPage} 
-                    />
+
                 </div>
             </div>
             <FootBar />

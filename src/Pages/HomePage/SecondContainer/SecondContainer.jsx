@@ -63,8 +63,6 @@ const SecondContainer = () => {
             icon: <MemoryIcon sx={{ fontSize: '90px' }} />
         },
         {
-
-
             name: 'HEALTHCARE',
             camelCased: 'Healthcare',
             icon: <HealthAndSafetyIcon sx={{ fontSize: '90px' }} />

@@ -26,6 +26,10 @@ const FootBar = () => {
         navigate('/termsCondition/')
         window.scroll(0, 0)
     }
+    const handleNavigatetoPrivacyPolicy = () => {
+        navigate('/privacypolicy/')
+        window.scroll(0, 0)
+    }
 
     return (
         <div className='FootBar'>
@@ -39,7 +43,7 @@ const FootBar = () => {
             <div className='FootBarFindHelp'>
                 <h3 className='FootBarHead'>Find Help</h3>
                 <p className='FootBarPara' onClick={handleNavigatetoHowToOrder}>How To Order</p>
-                <p className='FootBarPara'>Privacy Policy</p>
+                <p className='FootBarPara' onClick={handleNavigatetoPrivacyPolicy}>Privacy Policy</p>
                 <p className='FootBarPara' onClick={handleNavigatetoTermsAndConditions}>Terms and Condition</p>
             </div>
             <div className='FootBarContactUs'>

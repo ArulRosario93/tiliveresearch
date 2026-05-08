@@ -9,7 +9,7 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
 
     // Placeholder industries - you can replace this with your dynamic list later
     const availableIndustries = [
-        "Technology", "Healthcare", "Finance", "Automotive", "Energy", "Retail"
+        "Construction & Mining", "Pharma & Biotechnology", "Automotive & Transportation", "Aerospace & Defense", "Food & Beverage", "Energy & Power", "Information & Communication Technology", "Semiconductor & Electronics", "Healthcare", "Chemical & Materials",
     ];
 
     // Close dropdown when clicking outside of it

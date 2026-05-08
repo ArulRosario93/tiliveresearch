@@ -54,7 +54,7 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle }) => {
                     <input type="text" placeholder="Full Name" required />
                     <input type="email" placeholder="Work Email" required />
                     {type === 'purchase' && (
-                        <select className="ModalSelect">
+                        <select className="ModalSelect" style={{padding: '10px'}}>
                             <option>Single User License ($4000)</option>
                             <option>Corporate License ($5500)</option>
                         </select>
