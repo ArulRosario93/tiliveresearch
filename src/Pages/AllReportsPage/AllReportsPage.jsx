@@ -6,7 +6,7 @@ import AllReportsItemContainer from './AllReportsItemContainer/AllReportsItemCon
 import AllReportsLabel from './AllReportsLabel/AllReportsLabel';
 import DividerHori from '../../Components/Divider/DividerHori';
 import AllReportsNumbers from './AllReportsNumbers/AllReportsNumbers';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 const AllReportsPage = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);

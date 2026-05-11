@@ -5,7 +5,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import EditIcon from '@mui/icons-material/Edit';
 import AdminPageWriterHead from "./AdminPageWriterHead/AdminPageWriterHead";
 import AdminPageWriterSection from "./AdminPageWriterSection/AdminPageWriterSection";
-
+import DeleteIcon from '@mui/icons-material/Delete';
 const AdminPage = () => {
     // --- NEW STATES FOR DASHBOARD NAVIGATION ---
     const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' or 'editor'
@@ -174,6 +174,39 @@ const AdminPage = () => {
         setIndex(1);
     }
 
+    const handleDeleteReport = async (report) => {
+        // 1. Add a safety check to ensure the report actually has a title
+        if (!report || !report.title) {
+            alert("Error: This report does not have a valid title and cannot be deleted.");
+            return;
+        }
+
+        if (!window.confirm(`Are you sure you want to delete the report: "${report.title}"?`)) {
+            return;
+        }
+
+        try {
+            const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/deletereport?title=${encodeURIComponent(report.title)}`;
+            
+            const response = await fetch(URL, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            console.log("Delete response status:", response);
+
+            const resData = await response.json();
+            
+            if (!response.ok) throw new Error(resData.error || "Failed to delete");
+            
+            alert("Report deleted successfully!");
+            setAllReports(prev => prev.filter(r => r.title !== report.title));
+
+        } catch (error) {
+            alert(`Error deleting report: ${error.message}`);
+        }
+    };
+
     // --- SUBMIT: Handles both CREATE and UPDATE ---
     const submitToBackend = () => {
         if (!data.sections || data.sections.length === 0) {
@@ -220,7 +253,7 @@ const AdminPage = () => {
             )}
 
             <div className="AdminSidebar">
-                <div className="AdminLogo">Acme Corp</div>
+                <div className="AdminLogo">TILIVE INTERNATIONAL LLP</div>
                 <div className="AdminNav">
                     <p className={`NavItem ${activeTab === 'dashboard' ? 'Active' : ''}`} onClick={() => setActiveTab('dashboard')}>
                         <DashboardIcon className="NavIcon" /> Dashboard
@@ -268,6 +301,9 @@ const AdminPage = () => {
                                                     <td>
                                                         <button className="BtnSecondary" onClick={() => handleEditReport(r)}>
                                                             <EditIcon fontSize="small" style={{marginRight: '5px'}}/> Edit
+                                                        </button>
+                                                        <button className="BtnDanger" onClick={() => handleDeleteReport(r)} style={{marginLeft: '8px'}}>
+                                                            <DeleteIcon fontSize="small" style={{marginRight: '5px'}}/> Delete
                                                         </button>
                                                     </td>
                                                 </tr>

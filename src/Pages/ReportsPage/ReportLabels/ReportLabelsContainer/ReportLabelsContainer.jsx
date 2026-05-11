@@ -26,7 +26,7 @@ const ReportLabelsContainer = ({ text, sample, selected, buy, showContentOnly, s
                 <>
                     <p 
                         className={showContentOnly ? "ReportLabelsContainerTextBigger" : "ReportLabelsContainerText"} 
-                        style={{ textAlign: showContentOnly ? 'center' : 'left' }}
+                        style={{ borderRadius: '5px',textAlign: showContentOnly ? 'center' : 'left', color: text == "Request for Sample" ? "white": 'none', backgroundColor: text == "Request for Sample"?  'green': text == "Enquire Before Buying" ? 'turquoise' : 'none'}}
                     >
                         {text}
                         {subText && (
