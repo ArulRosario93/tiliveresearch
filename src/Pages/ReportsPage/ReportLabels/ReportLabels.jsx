@@ -29,6 +29,7 @@ const ReportLabels = ({ reportData, changelabels, currentReportLabel, onOpenModa
                         handleClick={() => onOpenModal('purchase')} 
                         text='Buy Now' 
                         buy={true} 
+                        data={reportData}
                         showContentOnly={false} 
                     />
                 </div>
@@ -39,12 +40,12 @@ const ReportLabels = ({ reportData, changelabels, currentReportLabel, onOpenModa
                         text='Enquire Before Buying' 
                         buy={false} 
                         showContentOnly={true} 
-                    />
-                    <ReportLabelsContainer 
+                    />  
+                    <ReportLabelsContainer
                         handleClick={() => onOpenModal('sample')} 
                         text='Request for Sample' 
                         buy={false} 
-                        showContentOnly={true} 
+                        showContentOnly={true}
                     />
                     <ReportLabelsContainer 
                         handleClick={() => console.log('Help Clicked')} 

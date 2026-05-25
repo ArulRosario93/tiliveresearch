@@ -1,18 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import './AdminPageWriterHead.css';
 
-const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) => {
-    
-    // State for managing the custom dropdown
+const AdminPageWriterHead = ({ data, mode, handleDataChange, handleIndustryChange, handleFormatChange }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // Placeholder industries - you can replace this with your dynamic list later
     const availableIndustries = [
         "Construction & Mining", "Pharma & Biotechnology", "Automotive & Transportation", "Aerospace & Defense", "Food & Beverage", "Energy & Power", "Information & Communication Technology", "Semiconductor & Electronics", "Healthcare", "Chemical & Materials",
     ];
 
-    // Close dropdown when clicking outside of it
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -23,34 +19,35 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-
     return (
         <div className="WriterForm">
             <div className="FormGroup">
-                <label>Report Title</label>
+                <label>{mode ? mode.toUpperCase() : 'Content'} Title</label>
                 <input 
                     className="FormInput" 
                     value={data.title} 
                     name="title"
                     onChange={handleDataChange} 
                     type="text" 
-                    placeholder="Enter report title..." 
+                    placeholder={`Enter ${mode} title...`} 
                 />
             </div>
 
             <div className="FormRow">
-                <div className="FormGroup">
-                    <label>Report Code</label>
-                    <input 
-                        className="FormInput" 
-                        value={data.reportCode} 
-                        name="reportCode"
-                        onChange={handleDataChange} 
-                        type="text" 
-                        placeholder="e.g. REP-2026-001" 
-                    />
-                </div>
+                {/* Only render complex report specifications if typing structure mode is a Report */}
+                {mode === 'report' && (
+                    <div className="FormGroup">
+                        <label>Report Code</label>
+                        <input 
+                            className="FormInput" 
+                            value={data.reportCode} 
+                            name="reportCode"
+                            onChange={handleDataChange} 
+                            type="text" 
+                            placeholder="e.g. REP-2026-001" 
+                        />
+                    </div>
+                )}
                 <div className="FormGroup">
                     <label>Published Date</label>
                     <input 
@@ -63,30 +60,48 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
                 </div>
             </div>
 
-            {/* NEW: Custom Multi-Select Dropdown */}
+            {/* Conditionally reveal commercial metrics only if mode evaluates directly to report */}
+            {mode === 'report' && (
+                <>
+                    <div className="FormGroup">
+                        <label>Available Formats</label>
+                        <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                <input type="checkbox" checked={data.availableFormats?.includes('pdf')} onChange={(e) => handleFormatChange('pdf', e.target.checked)} /> PDF
+                            </label>
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                <input type="checkbox" checked={data.availableFormats?.includes('excel')} onChange={(e) => handleFormatChange('excel', e.target.checked)} /> Excel
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="FormRow">
+                        <div className="FormGroup">
+                            <label>Single User Price In USD</label>
+                            <input className="FormInput" value={data.reportSingleUserPrice} name="reportSingleUserPrice" onChange={handleDataChange} type="number" placeholder="eg: 4999" />
+                        </div>
+                        <div className="FormGroup">
+                            <label>Corporate Price In USD</label>
+                            <input className="FormInput" value={data.reportCorporatePrice} name="reportCorporatePrice" onChange={handleDataChange} type="number" placeholder="eg: 5999" />
+                        </div>
+                    </div>
+                </>
+            )}
+
             <div className="FormGroup" ref={dropdownRef}>
-                <label>Industry Segments</label>
+                <label>Industry Segment / Tags</label>
                 <div className="CustomDropdown">
-                    <div className="DropdownHeader" onClick={toggleDropdown}>
+                    <div className="DropdownHeader" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <span className="DropdownSelectedText">
-                            {/* FIX: Added ?. to safely check length */}
-                            {data.industry?.length > 0 
-                                ? data.industry.join(", ") 
-                                : "Select Industries..."}
+                            {data.industry?.length > 0 ? data.industry.join(", ") : "Select Categories..."}
                         </span>
                         <span className={`DropdownArrow ${isDropdownOpen ? 'Open' : ''}`}>▼</span>
                     </div>
-                    
                     {isDropdownOpen && (
                         <div className="DropdownMenu">
                             {availableIndustries.map((ind) => (
                                 <label key={ind} className="DropdownItem">
-                                    <input
-                                        type="checkbox"
-                                        value={ind}
-                                        checked={(data.industry || []).includes(ind)}
-                                        onChange={handleIndustryChange}
-                                    />
+                                    <input type="checkbox" value={ind} checked={(data.industry || []).includes(ind)} onChange={handleIndustryChange} />
                                     {ind}
                                 </label>
                             ))}
@@ -96,18 +111,18 @@ const AdminPageWriterHead = ({ data, handleDataChange, handleIndustryChange }) =
             </div>
 
             <div className="FormGroup">
-                <label>Report Description</label>
+                <label>{mode === 'report' ? 'Report Summary' : 'Short Snippet/Introduction Description'}</label>
                 <textarea 
                     className="FormInput TextArea" 
                     value={data.description} 
                     name="description"
                     onChange={handleDataChange} 
                     rows="4"
-                    placeholder="Brief summary of the report..." 
+                    placeholder="Brief description introduction..." 
                 />
             </div>
         </div>
     );
-}
+};
 
 export default AdminPageWriterHead;

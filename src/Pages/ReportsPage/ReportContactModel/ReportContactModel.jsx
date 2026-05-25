@@ -1,7 +1,7 @@
 import React from 'react';
 import './ReportContactModel.css';
 
-const ReportContactModal = ({ isOpen, onClose, type, reportTitle }) => {
+const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
     if (!isOpen) return null;
 
     const getTitle = () => {
@@ -55,8 +55,8 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle }) => {
                     <input type="email" placeholder="Work Email" required />
                     {type === 'purchase' && (
                         <select className="ModalSelect" style={{padding: '10px'}}>
-                            <option>Single User License ($4000)</option>
-                            <option>Corporate License ($5500)</option>
+                            <option>Single User License (${price?.reportSingleUserPrice || '4999'})</option>
+                            <option>Corporate License (${price?.reportCorporatePrice || '5999'})</option>
                         </select>
                     )}
                     <textarea placeholder="Additional Notes" rows="4"></textarea>

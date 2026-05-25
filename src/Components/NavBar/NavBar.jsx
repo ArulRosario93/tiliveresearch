@@ -30,6 +30,14 @@ const NavBar = () => {
         navigate('/aboutus/')
     }
 
+    const handleNavigatetoBlogs = () => {
+        navigate('/blogs/')
+    }
+
+    const handleNavigatetoPressRelease = () => {
+        navigate('/pressrelease/')
+    }
+
     return (
         <div className="NavBar">
 
@@ -42,7 +50,7 @@ const NavBar = () => {
                 {
                     navItem.map((item, i) => {
                         return (
-                            <p key={i} className="NavBarContentItem" onClick={item == "Reports" ? handleNavigatetoReports : handleNavigatetoAboutUs} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver}>{item}</p>
+                            <p key={i} className="NavBarContentItem" onClick={item == "Reports" ? handleNavigatetoReports : item == "About Us" ? handleNavigatetoAboutUs : item == "Blogs" ? handleNavigatetoBlogs : handleNavigatetoPressRelease} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver}>{item}</p>
                         )
                     })
                 }

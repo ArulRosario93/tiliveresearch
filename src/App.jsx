@@ -14,6 +14,8 @@ import DisclaimerPage from './Pages/DisclaimerPage/DisclaimerPage';
 import HowToOrderPage from './Pages/HowToOrderPage/HowToOrderPage';
 import TermnConditionPage from './Pages/TermsnConditionsPage/TermsnConditionPage';
 import PrivacyPolicyPage from './Pages/PrivacyPolicyPage/PrivacyPolicyPage';
+import Blogs from './Pages/Blogs/Blogs';
+import PressRelease from './Pages/PressRelease/PressRelease';
 
 function App() {
 
@@ -62,6 +64,14 @@ function App() {
     {
       path: "/admin",
       element: <AdminPage />
+    },
+    {
+      path: "/blogs",
+      element: <Blogs />
+    },
+    {
+      path: "/pressrelease",
+      element: <PressRelease />
     },
   ]);
 

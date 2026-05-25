@@ -104,6 +104,7 @@ const ReportsPage = () => {
             <ReportContactModal 
                 isOpen={modalConfig.isOpen} 
                 type={modalConfig.type} 
+                price={reportData?.pricing}
                 reportTitle={reportData.title}
                 onClose={() => setModalConfig({ isOpen: false, type: '' })}
             />

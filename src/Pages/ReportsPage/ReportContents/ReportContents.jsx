@@ -12,15 +12,27 @@ const ReportContents = ({ reportData, currentReportLabel, changelabels }) => {
 
     return(
         <div className="ReportContents">
-            <CurrentPageLocation />
+            <CurrentPageLocation industry={reportData.industry} title={reportData.title} />
 
             <h2 className="ReportContentsHead">{reportData.title}</h2>
-            
+
             {/* Displaying the new Admin fields */}
             <div style={{ display: 'flex', gap: '15px', color: '#666', fontSize: '13px', marginBottom: '15px' }}>
                 {reportData.reportCode && <span><b>Code:</b> {reportData.reportCode}</span>}
                 {reportData.publishedDate && <span><b>Published:</b> {reportData.publishedDate}</span>}
                 {reportData.industry?.length > 0 && <span><b>Industry:</b> {reportData.industry.join(', ')}</span>}
+                {reportData.availableFormats?.includes('excel') && (
+                    <span style={{display: 'flex', alignItems: 'center', gap: '5px'}}><b>Available Format:</b>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" alt="Excel" style={{ width: '18px' }} />
+                    </span>
+                )}
+                {reportData.availableFormats?.includes('pdf') && (
+                    <span style={{display: 'flex', alignItems: 'center', gap: '5px'}}><b></b>
+                        {/* <picture title="PDF Format"> */}
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1280px-PDF_file_icon.svg.png" alt="PDF" style={{ width: '18px' }} />
+                        {/* </picture> */}
+                    </span>
+                )}
             </div>
 
             <p className="ReportContentsText">{reportData.description}</p>
