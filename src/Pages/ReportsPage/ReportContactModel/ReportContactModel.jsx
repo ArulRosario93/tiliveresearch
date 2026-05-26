@@ -17,22 +17,24 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
         e.preventDefault();
         
         const formData = {
-            name: e.target[0].value, // Captures the name from the form
-            type: type,
+            name: e.target[0].value,
+            email: e.target[1].value,
+            message: e.target[2].value,
+            type,
             report: reportTitle,
-            email: e.target[1].value, // Captures the email from the form
-            message: e.target[2].value
         };
 
         console.log("Form Data to be sent:", formData);
 
         try {
-            const response = await fetch('/sendEmail', {
+            const response = await fetch('https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/sendemail', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
             
+            console.log("Email API Response:", response);
+
             if (response.ok) {
                 alert("Email sent successfully!");
                 onClose();
