@@ -1,39 +1,136 @@
 .ModalOverlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
+
 .ModalContent {
     background: white;
     padding: 30px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 450px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 650px; /* Made wider to fit two columns comfortably */
+    max-height: 90vh; /* Prevents modal from overflowing the screen vertically */
+    overflow-y: auto; /* Allows scrolling if the screen is too small */
     font-family: "Poppins", sans-serif;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
 .ModalHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
 }
-.ModalSub { font-size: 12px; color: #666; margin-bottom: 20px; }
-.ModalForm { display: flex; flex-direction: column; gap: 15px; }
-.ModalForm input, .ModalForm textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+
+.ModalHeader h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #0f172a;
 }
+
+.ModalSub { 
+    font-size: 13px; 
+    color: #64748b; 
+    margin-top: 0;
+    margin-bottom: 25px; 
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.ModalForm { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+/* 2-Column Grid for larger screens */
+.FormRowGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.InputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.InputGroup label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.InputGroup label span.Required {
+    color: #ef4444; /* Red star for required */
+}
+
+.InputGroup label span.Optional {
+    color: #94a3b8; /* Grey text for optional */
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.ModalForm input, .ModalForm textarea, .ModalSelect {
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    background-color: #f8fafc;
+}
+
+.ModalForm input:focus, .ModalForm textarea:focus, .ModalSelect:focus {
+    border-color: #3D2BE2;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(61, 43, 226, 0.1);
+}
+
 .SubmitBtn {
     background: #3D2BE2;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: background 0.2s;
 }
-.CloseBtn { background: none; border: none; font-size: 24px; cursor: pointer; }
+
+.SubmitBtn:hover {
+    background: #2b1eb5;
+}
+
+.CloseBtn { 
+    background: none; 
+    border: none; 
+    font-size: 28px; 
+    cursor: pointer; 
+    color: #94a3b8;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.CloseBtn:hover {
+    color: #0f172a;
+}
+
+/* Mobile responsiveness - stack columns vertically */
+@media (max-width: 600px) {
+    .FormRowGrid {
+        grid-template-columns: 1fr;
+    }
+    .ModalContent {
+        padding: 20px;
+    }
+}

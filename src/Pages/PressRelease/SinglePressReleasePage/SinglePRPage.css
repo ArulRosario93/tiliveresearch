@@ -1,0 +1,110 @@
+.SinglePR {
+    background-color: #f4f6f9;
+    min-height: 100vh;
+    padding-top: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.SinglePRContainer {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #1e3a8a; /* Formal Deep Blue */
+}
+
+.SinglePRHeader {
+    padding: 40px 50px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.SinglePRBreadcrumbs {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.SinglePRBreadcrumbs span {
+    color: #38bdf8;
+    cursor: pointer;
+}
+
+.SinglePRTitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.SinglePRDate {
+    font-size: 15px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.SinglePRBody {
+    padding: 40px 50px;
+}
+
+.SinglePRLead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.PRSection {
+    margin-bottom: 40px;
+}
+
+.PRSectionTitle {
+    font-size: 22px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.PRPartContent {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+/* Fix spacing for rich text coming from the editor */
+.PRPartContent p { margin-bottom: 15px; }
+.PRPartContent a { color: #0284c7; text-decoration: none; }
+.PRPartContent a:hover { text-decoration: underline; }
+
+.PRImageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.PRPartImage {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    padding: 5px;
+}
+
+.PRFooter {
+    background-color: #f8fafc;
+    padding: 30px 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+}
+
+@media (max-width: 768px) {
+    .SinglePRHeader, .SinglePRBody, .PRFooter {
+        padding: 30px 20px;
+    }
+    .SinglePRTitle {
+        font-size: 26px;
+    }
+}

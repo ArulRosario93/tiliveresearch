@@ -16,10 +16,16 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        // Using form element names to safely gather data
         const formData = {
-            name: e.target[0].value,
-            email: e.target[1].value,
-            message: e.target[2].value,
+            name: e.target.name.value,
+            email: e.target.email.value,
+            phone: e.target.phone.value,
+            company: e.target.company.value,
+            jobTitle: e.target.jobTitle.value,
+            country: e.target.country.value,
+            message: e.target.message.value,
+            license: type === 'purchase' ? e.target.license.value : 'N/A',
             type,
             report: reportTitle,
         };
@@ -33,14 +39,16 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
                 body: JSON.stringify(formData)
             });
             
-            console.log("Email API Response:", response);
 
             if (response.ok) {
-                alert("Email sent successfully!");
+                alert("Request sent successfully! Our team will get back to you shortly.");
                 onClose();
+            } else {
+                alert("Something went wrong. Please try again later.");
             }
         } catch (error) {
             console.error("Error sending email:", error);
+            alert("Error connecting to the server.");
         }
     };
 
@@ -51,19 +59,77 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
                     <h3>{getTitle()}</h3>
                     <button className="CloseBtn" onClick={onClose}>&times;</button>
                 </div>
-                <p className="ModalSub">Target Report: {reportTitle}</p>
+                <p className="ModalSub">Target Report: <strong>{reportTitle}</strong></p>
+                
                 <form className="ModalForm" onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Full Name" required />
-                    <input type="email" placeholder="Work Email" required />
+                    
+                    {/* Row 1: Name & Email */}
+                    <div className="FormRowGrid">
+                        <div className="InputGroup">
+                            <label>Full Name <span className="Required">*</span></label>
+                            <input type="text" name="name" placeholder="John Doe" required />
+                        </div>
+                        <div className="InputGroup">
+                            <label>Work Email <span className="Required">*</span></label>
+                            <input type="email" name="email" placeholder="john@company.com" required />
+                        </div>
+                    </div>
+
+                    {/* Row 2: Company & Phone */}
+                    <div className="FormRowGrid">
+                        <div className="InputGroup">
+                            <label>Company Name <span className="Required">*</span></label>
+                            <input type="text" name="company" placeholder="Company Ltd." required />
+                        </div>
+                        <div className="InputGroup">
+                            <label>Phone Number <span className="Required">*</span></label>
+                            <input type="tel" name="phone" placeholder="+1 234 567 8900" required />
+                        </div>
+                    </div>
+
+                    {/* Row 3: Job Title & Country (Optional) */}
+                    <div className="FormRowGrid">
+                        <div className="InputGroup">
+                            <label>Job Title <span className="Optional">(Optional)</span></label>
+                            <input type="text" name="jobTitle" placeholder="e.g. Marketing Manager" />
+                        </div>
+                        <div className="InputGroup">
+                            <label>Country <span className="Optional">(Optional)</span></label>
+                            <input type="text" name="country" placeholder="e.g. United States" />
+                        </div>
+                    </div>
+
+                    {/* License Type (Only for Purchases) */}
                     {type === 'purchase' && (
-                        <select className="ModalSelect" style={{padding: '10px'}}>
-                            <option>Single User License (${price?.reportSingleUserPrice || '4999'})</option>
-                            <option>Corporate License (${price?.reportCorporatePrice || '5999'})</option>
-                        </select>
+                        <div className="InputGroup">
+                            <label>License Type <span className="Required">*</span></label>
+                            <select name="license" className="ModalSelect" required>
+                                <option value={`Single User License ($${price?.reportSingleUserPrice || '4999'})`}>
+                                    Single User License (${price?.reportSingleUserPrice || '4999'})
+                                </option>
+                                <option value={`Corporate License ($${price?.reportCorporatePrice || '5999'})`}>
+                                    Corporate License (${price?.reportCorporatePrice || '5999'})
+                                </option>
+                            </select>
+                        </div>
                     )}
-                    <textarea placeholder="Additional Notes" rows="4"></textarea>
+
+                    {/* Message / Notes */}
+                    <div className="InputGroup">
+                        <label>
+                            Additional Notes / Requirements 
+                            {type === 'enquiry' ? <span className="Required"> *</span> : <span className="Optional"> (Optional)</span>}
+                        </label>
+                        <textarea 
+                            name="message" 
+                            placeholder="Please detail your specific requirements or questions here..." 
+                            rows="3" 
+                            required={type === 'enquiry'}
+                        ></textarea>
+                    </div>
+                    
                     <button type="submit" className="SubmitBtn">
-                        {type === 'purchase' ? 'Proceed to Purchase' : 'Send Request'}
+                        {type === 'purchase' ? 'Proceed to Purchase' : 'Submit Request'}
                     </button>
                 </form>
             </div>

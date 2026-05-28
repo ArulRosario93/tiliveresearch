@@ -16,9 +16,10 @@ import TermnConditionPage from './Pages/TermsnConditionsPage/TermsnConditionPage
 import PrivacyPolicyPage from './Pages/PrivacyPolicyPage/PrivacyPolicyPage';
 import Blogs from './Pages/Blogs/Blogs';
 import PressRelease from './Pages/PressRelease/PressRelease';
+import SingleBlogPage from './Pages/Blogs/SingleBlogPage/SingleBlogPage'; 
+import SinglePRPage from './Pages/PressRelease/SinglePressReleasePage/SinglePressReleasePage';
 
 function App() {
-
 
   const router = createBrowserRouter([
     {
@@ -73,6 +74,14 @@ function App() {
       path: "/pressrelease",
       element: <PressRelease />
     },
+    {
+      path: "/blogs/:blogtitle",
+      element: <SingleBlogPage />
+    },
+    {
+      path: "/pressrelease/:prtitle",
+      element: <SinglePRPage />
+    }
   ]);
 
   return (

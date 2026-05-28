@@ -1,0 +1,122 @@
+.Blogs {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding-top: 100px; /* Offset for NavBar */
+    padding-bottom: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.BlogsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.BlogsHeader {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 40px;
+}
+
+.BlogsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.BlogCard {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.BlogCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.BlogImageContainer {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #e2e8f0;
+}
+
+.BlogImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.BlogDateBadge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.BlogContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.BlogTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0ea5e9; /* Light blue from screenshot */
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.BlogDescription {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+.BlogReadMore {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.LoadingText {
+    text-align: center;
+    font-size: 18px;
+    color: #64748b;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .BlogsGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -307,26 +307,28 @@ const AdminPage = () => {
         setIsUploading(true);
         const isUpdate = !!originalTitle;
 
+        // Determine the correct Netlify function based on content type and whether it's an update
         let functionName = isUpdate ? 'updatereport' : 'uploadreport';
         if (contentType === 'blog') functionName = isUpdate ? 'updateblog' : 'uploadblog';
         if (contentType === 'pr') functionName = isUpdate ? 'updatepressrelease' : 'uploadpressrelease';
 
+        // Construct dynamic URL and Method
         const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/${functionName}?title=${encodeURIComponent(originalTitle || '')}`;
         const method = isUpdate ? 'PUT' : 'POST';
         const payload = isUpdate ? data : { content: data };
 
         try {
-            // 1. Get the current, unexpired token directly from Firebase Auth
-            const token = await auth.currentUser.getIdToken(true);
+            // 1. Get the current token directly from localStorage (your new auth system)
+            const token = localStorage.getItem("adminToken");
 
-            // 2. Send it to your backend
-            const response = await fetch("https://your-api.netlify.app/.netlify/functions/uploadreport", {
-                method: "POST",
+            // 2. Send it to your backend using the dynamically created URL
+            const response = await fetch(URL, {
+                method: method,
                 headers: { 
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Backend checks this!
+                    'Authorization': `Bearer ${token}` 
                 },
-                body: JSON.stringify(data)        
+                body: JSON.stringify(payload)        
             });
 
             const resData = await response.json();
@@ -336,7 +338,7 @@ const AdminPage = () => {
             }
             
             // 3. Clear acknowledgment alert upon confirmation return status
-            alert(`Success Acknowledged! Server Confirmation: ${resData.message || 'Operation successful'}`);
+            alert(`${contentType.toUpperCase()} successfully saved!`);
             setActiveTab('dashboard');
 
         } catch (error) {
