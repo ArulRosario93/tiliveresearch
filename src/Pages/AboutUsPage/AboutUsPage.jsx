@@ -2,6 +2,8 @@ import React from 'react';
 import "./AboutusPage.css";
 import NavBar from '../../Components/NavBar/NavBar';
 import FootBar from '../../Components/FootBar/FootBar';
+import whoweare from "../../assets/whoweare.png";
+import whychooseus from "../../assets/whyus.jpg";
 
 const AboutUsPage = () => {
     return (
@@ -19,14 +21,14 @@ const AboutUsPage = () => {
                 <div className='AboutUsPageWhoAreWe'>
 
                     <div className='AboutUsPageWhoAreWeContent'>
-                        <h2 className='AboutUsPageWhoAreWeContent'>Who Are We</h2>
+                        {/* <h2 className='AboutUsPageWhoAreWeContent'>Who Are We</h2> */}
                         <p className='AboutUsPageWhoAreWeContentPara'>Tilive Research is a consulting and market research firm operating as a division of Tilive International LLP, that provides data-driven insights to assist businesses in making informed and strategic decisions. We focus on analyzing market trends, customer behavior, and competitive landscapes across various industries, such as healthcare, technology, energy, automotive, and others.
     </p>
                         <p className='AboutUsPageWhoAreWeContentPara'>Our team merges analytical expertise with practical business knowledge to deliver research that is not only informative but also actionable. We collaborate closely with clients to transform complex data into straightforward strategies that promote growth, innovation, and enduring impact.
     </p>
                     </div>
                     <div className='AboutUsPageWhoAreWeImage'>
-                        <img src="https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg" alt="" srcset="" />
+                        <img src={whoweare} alt="Who We Are" />
                     </div>
 
                 </div>
@@ -35,7 +37,7 @@ const AboutUsPage = () => {
                 <div className='AboutUsPageWhyChooseUs'>
 
                     <div className='AboutUsPageWhyChooseUsImage'>
-                        <img src="https://forecastree.com/wp-content/uploads/2024/02/about-us-page-image-1.webp" alt="" srcset="" />
+                        <img src={whychooseus} alt="Why Choose Us" />
                     </div>
                     <div className='AboutUsPageWhyChooseUsContent'>
 
