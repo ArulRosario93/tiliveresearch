@@ -19,8 +19,15 @@ const ReportContents = ({ reportData, currentReportLabel, changelabels }) => {
             {/* Displaying the new Admin fields */}
             <div style={{ display: 'flex', gap: '15px', color: '#666', fontSize: '13px', marginBottom: '15px' }}>
                 {reportData.reportCode && <span><b>Code:</b> {reportData.reportCode}</span>}
-                {reportData.publishedDate && <span><b>Published:</b> {reportData.publishedDate}</span>}
-                {reportData.industry?.length > 0 && <span><b>Industry:</b> {reportData.industry.join(', ')}</span>}
+                {reportData.publishedDate && (
+                <span>
+                    <b>Published:</b>{" "}
+                    {new Date(reportData.publishedDate).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                    })}
+                </span>
+                )}                {reportData.industry?.length > 0 && <span><b>Industry:</b> {reportData.industry.join(', ')}</span>}
                 {reportData.availableFormats?.includes('excel') && (
                     <span style={{display: 'flex', alignItems: 'center', gap: '5px'}}><b>Available Format:</b>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" alt="Excel" style={{ width: '18px' }} />
