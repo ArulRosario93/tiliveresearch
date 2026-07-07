@@ -30,8 +30,6 @@ const ReportContactModal = ({ isOpen, onClose, type, reportTitle, price }) => {
             report: reportTitle,
         };
 
-        console.log("Form Data to be sent:", formData);
-
         try {
             const response = await fetch('https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/sendemail', {
                 method: 'POST',

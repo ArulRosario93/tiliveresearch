@@ -19,6 +19,10 @@ const NavBar = () => {
         // setNavHover(e.target.innerText);
     }
 
+    const handleGoToHome = () => {
+        navigate('/');
+    }
+
     const handleMouseLeave = (e) => {
         // setNavHover('');
     }
@@ -41,7 +45,7 @@ const NavBar = () => {
     return (
         <div className="NavBar">
 
-            <div className="NavBarLogo">
+            <div className="NavBarLogo" onClick={handleGoToHome}>
                 <img src={logo} alt="" srcset="" />
             </div>
 
