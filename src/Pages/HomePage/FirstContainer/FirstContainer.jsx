@@ -1,8 +1,24 @@
 
 import React from "react";
 import './FirstContainer.css'
+const 
 
 const FirstContainer = () => {
+
+    const handleGoToResearch = () => {
+    
+        // navigate('/research/')
+
+    }
+
+    const handleGoToAboutUs = () => {
+        // navigate('/aboutus/')
+    }
+
+    const handleGoToContactUs = () => {
+        // navigate('/contactus/')
+    }
+
     return (
         <div className="FirstContainer">
 

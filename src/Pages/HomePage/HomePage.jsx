@@ -50,23 +50,6 @@ const HomePage = () => {
         ]
     }
 
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ content: content })
-    };
-
-    // const URL = "https://storied-paprenjak-0a4af7.netlify.app/.netlify/functions/uploadReport";
-    const URL = "https://storied-paprenjak-0a4af7.netlify.app/.netlify/functions/getReports";
-
-    useEffect(() => {
-        fetch(URL
-            // , requestOptions
-        )
-            .then(response => response.json()) // Parse JSON response
-            .then(json => console.log(json))
-    }, []);
-
     return (
         <div className="HomePage">
 
