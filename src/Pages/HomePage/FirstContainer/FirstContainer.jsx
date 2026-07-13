@@ -1,22 +1,24 @@
 
 import React from "react";
+import { useNavigate } from "react-router";
 import './FirstContainer.css'
-const 
 
 const FirstContainer = () => {
 
+    const navigate = useNavigate();
+
     const handleGoToResearch = () => {
     
-        // navigate('/research/')
+        navigate('/reports/')
 
     }
 
     const handleGoToAboutUs = () => {
-        // navigate('/aboutus/')
+        navigate('/aboutUs/')
     }
 
     const handleGoToContactUs = () => {
-        // navigate('/contactus/')
+        navigate('/contactus/')
     }
 
     return (
