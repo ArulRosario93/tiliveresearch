@@ -28,9 +28,9 @@ const FirstContainer = () => {
             <p className="FirstContainerPara">Delivering rigorous research and forward-thinking analysis across industries.</p>
 
             <div className="FirstContainerLists">
-                <p className="FirstContainerListsPara">View Research</p>
-                <p className="FirstContainerListsPara">About Us</p>
-                <p className="FirstContainerListsPara">Contact Us</p>
+                <p className="FirstContainerListsPara" onClick={handleGoToResearch}>View Research</p>
+                <p className="FirstContainerListsPara" onClick={handleGoToAboutUs}>About Us</p>
+                <p className="FirstContainerListsPara" onClick={handleGoToContactUs}>Contact Us</p>
             </div>
 
         </div>
