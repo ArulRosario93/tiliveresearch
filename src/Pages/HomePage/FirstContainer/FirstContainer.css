@@ -36,6 +36,11 @@
     align-items: center;
 }
 
+.FirstContainerListsPara:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 @media (max-width: 768px){
 
     .FirstContainer{
