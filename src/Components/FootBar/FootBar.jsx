@@ -51,7 +51,7 @@ const FootBar = () => {
                     <p className='FootBarPara'>601, Clover Hills Plaza,</p> 
                     <p className='FootBarPara'>NIBM Road, Pune- 411048 IN</p>
                 <br />
-                <p className='FootBarPara'><b>Phone:</b> +91 96234 41273</p>
+                <p className='FootBarPara'><b>Phone:</b> +91 8263 893 511</p>
                 <p className='FootBarPara'><b>Email:</b> admin@tiliveresearch.com</p>
             </div>
         </div>
