@@ -20,13 +20,17 @@ const ReportsPage = () => {
         setModalConfig({ isOpen: true, type });
     };
 
+    const reportTitle = reportid.replace(/-/g, " ");
+
+    console.log("ReportsPage reportid:", reportid, "reportTitle:", reportTitle);
+
     useEffect(() => {
         // Scroll to top on load
         window.scroll(0, 0);
         const fetchReportData = async () => {
             setLoading(true);
             try {
-                const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports?title=${encodeURIComponent(reportid)}`;
+                const URL = `https://sprightly-jelly-d7e745.netlify.app/.netlify/functions/getreports?title=${encodeURIComponent(reportTitle)}`;
                 const response = await fetch(URL);
                 const data = await response.json();
                 
@@ -37,7 +41,7 @@ const ReportsPage = () => {
                 }
 
                 // If data is the object itself, use it; if it's an array, find it.
-                const matchedReport = data.title === reportid ? data : null;
+                const matchedReport = data.title === reportTitle ? data : null;
                 
                 setReportData(matchedReport);
 

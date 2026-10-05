@@ -6,8 +6,12 @@ import DividerHori from "../../../Components/Divider/DividerHori";
 const AllReportsItemContainer = ({ title, description, date, category, last }) => {
     const navigate = useNavigate();
 
+    console.log("AllReportsItemContainer props:", { title, description, date, category, last });
+
+    const slug = title?.replace(/\s+/g, "-");
+
     return (
-        <div className="AllReportsItemContainer" onClick={() => navigate(`/reports/${title}`)}>
+        <div className="AllReportsItemContainer" onClick={() => navigate(`/reports/${slug}`)}>
             <h2 className="AllReportsItemContainerHead">{title}</h2>
             <p className="AllReportsItemContainerDescription">{description}</p>
             <div className="AllReportsItemMeta">
